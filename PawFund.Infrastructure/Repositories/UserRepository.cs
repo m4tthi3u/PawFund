@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PawFund.Backend
+namespace PawFund.Infrastructure.Repositories
 {
-    public partial class PawFund
+    internal class UserRepository
     {
-
     }
 }
