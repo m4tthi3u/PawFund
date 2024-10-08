@@ -1,0 +1,31 @@
+﻿@page
+@model PawFund.Pages.Pets.DetailsModel
+@{
+    ViewData["Title"] = "Pet Details";
+}
+
+<h1>@Model.Pet.Name</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="@Model.Pet.ImageUrl" class="img-fluid" alt="@Model.Pet.Name">
+    </div>
+    <div class="col-md-6">
+        <h3>Details</h3>
+        <p><strong>Species:</strong> @Model.Pet.Species</p>
+        <p><strong>Breed:</strong> @Model.Pet.Breed</p>
+        <p><strong>Age:</strong> @Model.Pet.Age years</p>
+        <p><strong>Gender:</strong> @Model.Pet.Gender</p>
+        <p><strong>Description:</strong> @Model.Pet.Description</p>
+        <p><strong>Shelter:</strong> @Model.Pet.Shelter.Name</p>
+
+        @if (!Model.Pet.IsAdopted)
+        {
+            <a asp-page="./Adopt" asp-route-id="@Model.Pet.Id" class="btn btn-primary">Adopt This Pet</a>
+        }
+        else
+        {
+            <p class="text-success">This pet has been adopted!</p>
+        }
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Welcome to PawFund";
+}
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to PawFund</h1>
+    <p class="lead">Connecting hearts, one paw at a time. Find your perfect companion and support animal shelters.</p>
+    <hr class="my-4">
+    <p>Explore available pets, make a donation, or learn about upcoming events.</p>
+    <a class="btn btn-primary btn-lg" href="/Pets" role="button">Find a Pet</a>
+    <a class="btn btn-success btn-lg" href="/Donations/Create" role="button">Make a Donation</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Featured Pets</h2>
+        @foreach (var pet in Model.FeaturedPets)
+        {
+            <div class="card mb-3">
+                <img src="@pet.ImageUrl" class="card-img-top" alt="@pet.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@pet.Name</h5>
+                    <p class="card-text">@pet.Breed, @pet.Age years old</p>
+                    <a href="/Pets/Details?id=@pet.Id" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        }
+        <a href="/Pets" class="btn btn-secondary">View All Pets</a>
+    </div>
+    <div class="col-md-4">
+        <h2>Upcoming Events</h2>
+        @foreach (var evt in Model.UpcomingEvents)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@evt.Title</h5>
+                    <p class="card-text">@evt.Date.ToString("MMM dd, yyyy")</p>
+                    <p class="card-text">@evt.Location</p>
+                    <a href="/Events/Details?id=@evt.Id" class="btn btn-primary">Event Details</a>
+                </div>
+            </div>
+        }
+        <a href="/Events" class="btn btn-secondary">View All Events</a>
+    </div>
+</div>
