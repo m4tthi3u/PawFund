@@ -1,14 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.EntityFrameworkCore;
 using PawFund.API.Data;
 using PawFund.API.Repositories;
 using PawFund.API.Services;
 using PawFund.Core.Interfaces.Repositories;
-using PawFund.Core.Interfaces.Services; // Add this line
+using PawFund.Core.Interfaces.Services;
 
 namespace PawFund
 {
@@ -23,21 +18,21 @@ namespace PawFund
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext <ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddRazorPages();
             services.AddHttpClient();
             services.AddScoped<IPetService, PetService>();
-            services.AddScoped<IPetRepository, PetRepository>();// Add this line
+            services.AddScoped<IPetRepository, PetRepository>();
             services.AddScoped<IEventService, EventService>();
-            services.AddScoped<IEventRepository, EventRepository>();// Add this line
+            services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IShelterService, ShelterService>();
-            services.AddScoped<IShelterRepository, ShelterRepository>();// Add this line
+            services.AddScoped<IShelterRepository, ShelterRepository>();
             services.AddScoped<IDonationService, DonationService>();
-            services.AddScoped<IDonationRepository, DonationRepository>();// Add this line
+            services.AddScoped<IDonationRepository, DonationRepository>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserRepository, UserRepository>();// Add this line
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
 
