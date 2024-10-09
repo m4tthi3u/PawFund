@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PawFund.Core.Models;
+using System.Collections.Generic;
 
 namespace PawFund.Infrastructure.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext: DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
@@ -11,5 +12,6 @@ namespace PawFund.Infrastructure.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Donation> Donations { get; set; }
         public DbSet<Event> Events { get; set; }
+
     }
 }
