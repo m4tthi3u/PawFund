@@ -1,4 +1,4 @@
-﻿namespace PawFund.Infrastructure.Repositories
+﻿namespace PawFund.Repositories
 {
     public class PetRepository
     {

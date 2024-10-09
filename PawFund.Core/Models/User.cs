@@ -3,9 +3,21 @@
     public class User
     {
         public int Id { get; set; }
-        public string FullName { get; set; }
+        public string Username { get; set; }
         public string Email { get; set; }
-        public string Role { get; set; } // Adopter, Donor, Volunteer, Admin
-        public DateTime DateRegistered { get; set; }
+        public string Password { get; set; }
+        public string PasswordHash { get; set; }
+        public UserRole Role { get; set; }
+    }
+
+    public enum UserRole
+    {
+        Guest,
+        Adopter,
+        Donor,
+        Volunteer,
+        Staff,
+        Admin
     }
 }
+

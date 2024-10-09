@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PawFund.API.DTOs
+namespace PawFund.Core.Models
 {
-    public class PetDto
+    public class Shelter
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Breed { get; set; }
-        public string Age { get; set; }
-        public string Status { get; set; }
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
     }
 }

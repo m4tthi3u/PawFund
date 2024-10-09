@@ -3,20 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund.API", "PawFund\PawFund.API.csproj", "{A1D0A334-ED7C-4449-8771-7E3DF66D6908}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund.Core", "PawFund.Core\PawFund.Core.csproj", "{6CA104A0-0186-468D-B083-5A2B1D1FD45F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawFund.Core", "PawFund.Core\PawFund.Core.csproj", "{6CA104A0-0186-468D-B083-5A2B1D1FD45F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund", "PawFund.Infrastructure\PawFund.csproj", "{DF46814D-24AE-4F3E-BE3C-D42DD6DA35E6}"
 	ProjectSection(ProjectDependencies) = postProject
-		{A1D0A334-ED7C-4449-8771-7E3DF66D6908} = {A1D0A334-ED7C-4449-8771-7E3DF66D6908}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawFund.Infrastructure", "PawFund.Infrastructure\PawFund.Infrastructure.csproj", "{DF46814D-24AE-4F3E-BE3C-D42DD6DA35E6}"
-	ProjectSection(ProjectDependencies) = postProject
+		{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4} = {5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}
 		{6CA104A0-0186-468D-B083-5A2B1D1FD45F} = {6CA104A0-0186-468D-B083-5A2B1D1FD45F}
-		{A1D0A334-ED7C-4449-8771-7E3DF66D6908} = {A1D0A334-ED7C-4449-8771-7E3DF66D6908}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawFund.Test", "PawFund.Test\PawFund.Test.csproj", "{737DC8A6-7E07-43D1-85D1-94682EF60509}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund.Test", "PawFund.Test\PawFund.Test.csproj", "{737DC8A6-7E07-43D1-85D1-94682EF60509}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawFund.API", "PawFund.API\PawFund.API.csproj", "{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A1D0A334-ED7C-4449-8771-7E3DF66D6908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1D0A334-ED7C-4449-8771-7E3DF66D6908}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1D0A334-ED7C-4449-8771-7E3DF66D6908}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1D0A334-ED7C-4449-8771-7E3DF66D6908}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CA104A0-0186-468D-B083-5A2B1D1FD45F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6CA104A0-0186-468D-B083-5A2B1D1FD45F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CA104A0-0186-468D-B083-5A2B1D1FD45F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -40,6 +33,10 @@ Global
 		{737DC8A6-7E07-43D1-85D1-94682EF60509}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{737DC8A6-7E07-43D1-85D1-94682EF60509}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{737DC8A6-7E07-43D1-85D1-94682EF60509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,16 +10,20 @@ namespace PawFund.Core.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Species { get; set; }
         public string Breed { get; set; }
         public int Age { get; set; }
-        public string Status { get; set; } = "Available"; // default is available, we can change it later if needed
-        public DateTime DateAdded { get; set; }
-        public string AdopterName { get; set; } = null; // Adopters can  be anonymous, people don't like to share their names due to privacy concerns
-
-        public void MarkAsAdopted(string adopterName)
-        {
-            Status = "Adopted";
-            AdopterName = adopterName;
-        }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+        public string Status { get; set; }
+        public int ShelterId { get; set; }
     }
+
+    // will consider late, because idk how to implement this, we use string instead, I guess.
+    //public enum AdoptionStatus 
+    //{
+    //    Available,
+    //    Pending,
+    //    Adopted
+    //}
 }

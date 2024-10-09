@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using PawFund.Core.Models;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
-namespace PawFund.Data
+namespace PawFund.API.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Pet> Pets { get; set; }
         public DbSet<User> Users { get; set; }
@@ -20,7 +20,6 @@ namespace PawFund.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configure entity relationships and constraints here
             modelBuilder.Entity<Pet>()
                 .HasOne<Shelter>()
                 .WithMany()
@@ -32,7 +31,7 @@ namespace PawFund.Data
                 .HasForeignKey(d => d.UserId);
 
             modelBuilder.Entity<Donation>()
-                .HasOne<Shelter>()
+            .HasOne<Shelter>()
                 .WithMany()
                 .HasForeignKey(d => d.ShelterId);
 

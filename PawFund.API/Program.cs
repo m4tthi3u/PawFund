@@ -1,4 +1,7 @@
-namespace PawFund
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
+namespace PawFund.API
 {
     public class Program
     {
