@@ -21,7 +21,7 @@ namespace PawFund.API
         {
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             // Register repositories
             services.AddScoped<IPetRepository, PetRepository>();
