@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using NpgsqlTypes;
 
 namespace PawFund.Core.Models
 {
@@ -15,15 +13,17 @@ namespace PawFund.Core.Models
         public int Age { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        public string Status { get; set; }
+        
+        public AdoptionStatus Status { get; set; }
         public int ShelterId { get; set; }
     }
-
-    // will consider late, because idk how to implement this, we use string instead, I guess.
-    //public enum AdoptionStatus 
-    //{
-    //    Available,
-    //    Pending,
-    //    Adopted
-    //}
+    public enum AdoptionStatus 
+    {
+        [PgName("Available")]
+        Available,
+        [PgName("Pending")]
+        Pending,
+        [PgName("Adopted")]
+        Adopted
+    }
 }

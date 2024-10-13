@@ -1,10 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Npgsql;
 using PawFund.API.Data;
 using PawFund.API.Repositories;
 using PawFund.API.Services;
 using PawFund.Core.Interfaces.Repositories;
 using PawFund.Core.Interfaces.Services;
+using PawFund.Core.Models;
 
 namespace PawFund.API
 {
@@ -19,9 +22,15 @@ namespace PawFund.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            NpgsqlConnection.GlobalTypeMapper.MapEnum<AdoptionStatus>("adoptionstatus");
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                });
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            
 
             // Register repositories
             services.AddScoped<IPetRepository, PetRepository>();

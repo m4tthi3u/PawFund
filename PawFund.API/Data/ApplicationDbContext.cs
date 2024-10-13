@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using PawFund.Core.Models;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using Npgsql;
 
 namespace PawFund.API.Data
 {
@@ -25,6 +26,10 @@ namespace PawFund.API.Data
                 .WithMany()
                 .HasForeignKey(p => p.ShelterId);
 
+            modelBuilder.Entity<Pet>()
+                .Property(e => e.Status)
+                .HasConversion<string>();
+            
             modelBuilder.Entity<Donation>()
                 .HasOne<User>()
                 .WithMany()
