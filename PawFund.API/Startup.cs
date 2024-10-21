@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Npgsql;
 using PawFund.API.Data;
@@ -51,7 +52,14 @@ namespace PawFund.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PawFund API", Version = "v1" });
             });
 
-
+            services.AddCors(options =>
+{
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder
+                        .WithOrigins("https://localhost:5173")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -68,6 +76,7 @@ namespace PawFund.API
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors("AllowSpecificOrigin");
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

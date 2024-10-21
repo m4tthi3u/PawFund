@@ -2,47 +2,57 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-    const [forecasts, setForecasts] = useState();
+    const [pets, setPets] = useState();
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        populateWeatherData();
+        populatePetData();
     }, []);
 
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tableLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
+    const contents = error
+        ? <p><em>{error}</em></p>
+        : pets === undefined
+            ? <p><em>Loading... Please refresh once the ASP.NET backend has started.</em></p>
+            : <table className="table table-striped" aria-labelledby="tableLabel">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Breed</th>
+                        <th>Age</th>
+                        <th>Adoption Status</th>
                     </tr>
-                )}
-            </tbody>
-        </table>;
+                </thead>
+                <tbody>
+                    {pets.map(pet =>
+                        <tr key={pet.id}>
+                            <td>{pet.name}</td>
+                            <td>{pet.breed}</td>
+                            <td>{pet.age}</td>
+                            <td>{pet.status}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>;
 
     return (
         <div>
-            <h1 id="tableLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
+            <h1 id="tableLabel">Pet List</h1>
+            <p>This component demonstrates fetching pet data from the server.</p>
             {contents}
         </div>
     );
-    
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        setForecasts(data);
+
+    async function populatePetData() {
+        try {
+            const response = await fetch('https://localhost:7292/api/Pets/GetPets');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            setPets(data);
+        } catch (error) {
+            setError(`Failed to fetch pet data: ${error.message}`);
+        }
     }
 }
 

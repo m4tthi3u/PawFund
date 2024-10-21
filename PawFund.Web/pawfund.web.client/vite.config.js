@@ -63,6 +63,12 @@ export default defineConfig({
             '^/weatherforecast': {
                 target,
                 secure: false
+            },
+            '^/api': {
+                target, // Proxy all API requests to the backend
+                secure: false,
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, '') // Optional: Remove /api prefix if needed
             }
         },
         port: 5173,
@@ -71,4 +77,4 @@ export default defineConfig({
             cert: fs.readFileSync(certFilePath),
         }
     }
-})
+});
