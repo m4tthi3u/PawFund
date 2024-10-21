@@ -1,0 +1,29 @@
+$DESKTOP: "DESKTOP";
+$MEDIUM_DEVIDE: "MEDIUM_DEVIDE";
+$TABLE_DEVIDE: "TABLE_DEVIDE";
+$WIDE_DEVIDE: "WIDE_DEVIDE";
+$SMALL_DEVIDE: "SMALL_DEVIDE";
+
+@mixin Responsive($canvas){
+    @if $canvas == $DESKTOP {
+        @media only screen and (min-width: 1200px) {
+            @content;
+        }
+    } @else if $canvas == $MEDIUM_DEVIDE {
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    } @else if $canvas == $TABLE_DEVIDE {
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    }  @else if $canvas == $WIDE_DEVIDE {
+        @media only screen and (max-width: 7667px) {
+            @content;
+        }
+    }  @else if $canvas == $SMALL_DEVIDE {
+        @media only screen and (max-width: 575px) {
+            @content;
+        }
+    }
+}
