@@ -22,7 +22,7 @@ namespace PawFund.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            NpgsqlConnection.GlobalTypeMapper.MapEnum<AdoptionStatus>("adoptionstatus");
+            //NpgsqlConnection.GlobalTypeMapper.MapEnum<AdoptionStatus>("adoptionstatus");
             services.AddControllers()
                 .AddJsonOptions(options =>
                 {
@@ -50,6 +50,8 @@ namespace PawFund.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PawFund API", Version = "v1" });
             });
+
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -58,7 +60,10 @@ namespace PawFund.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PawFund API v1"));
+                app.UseSwaggerUI(c=>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "PawFund API v1");
+                });
             }
 
             app.UseHttpsRedirection();

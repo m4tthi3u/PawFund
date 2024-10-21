@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations.Schema;
-using NpgsqlTypes;
+﻿using NpgsqlTypes;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace PawFund.Core.Models
 {
@@ -13,17 +13,17 @@ namespace PawFund.Core.Models
         public int Age { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
-        
+
         public AdoptionStatus Status { get; set; }
         public int ShelterId { get; set; }
     }
-    public enum AdoptionStatus 
+    public enum AdoptionStatus
     {
-        [PgName("Available")]
+        
         Available,
-        [PgName("Pending")]
+       
         Pending,
-        [PgName("Adopted")]
+       
         Adopted
     }
 }

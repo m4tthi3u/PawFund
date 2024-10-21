@@ -28,8 +28,13 @@ namespace PawFund.API.Data
 
             modelBuilder.Entity<Pet>()
                 .Property(e => e.Status)
-                .HasConversion<string>();
-            
+                //.HasConversion<string>()
+                .HasColumnType("adoptionstatus")
+                .HasConversion(
+                     v => v.ToString(),
+                     v => (AdoptionStatus)Enum.Parse(typeof(AdoptionStatus), v)
+                 );
+
             modelBuilder.Entity<Donation>()
                 .HasOne<User>()
                 .WithMany()
