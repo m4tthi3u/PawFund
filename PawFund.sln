@@ -9,10 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund.Test", "PawFund.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund.API", "PawFund.API\PawFund.API.csproj", "{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "pawfund.web.client", "PawFund.Web\pawfund.web.client\pawfund.web.client.esproj", "{E970BADF-9D65-47BF-ABFE-44DDA72295E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund.Web.Server", "PawFund.Web\PawFund.Web.Server\PawFund.Web.Server.csproj", "{79808491-A16F-4E87-AA17-399F50200658}"
 	ProjectSection(ProjectDependencies) = postProject
-		{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4} = {5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}
+		{6CA104A0-0186-468D-B083-5A2B1D1FD45F} = {6CA104A0-0186-468D-B083-5A2B1D1FD45F}
 	EndProjectSection
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "pawfund.web.client", "PawFund.Web\pawfund.web.client\pawfund.web.client.esproj", "{1469052B-43FF-44ED-9182-FC0B9CFCA762}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,12 +34,16 @@ Global
 		{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BAE1BFF-D86F-4554-BC13-EE17B80C50F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E970BADF-9D65-47BF-ABFE-44DDA72295E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E970BADF-9D65-47BF-ABFE-44DDA72295E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E970BADF-9D65-47BF-ABFE-44DDA72295E7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{E970BADF-9D65-47BF-ABFE-44DDA72295E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E970BADF-9D65-47BF-ABFE-44DDA72295E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E970BADF-9D65-47BF-ABFE-44DDA72295E7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{79808491-A16F-4E87-AA17-399F50200658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79808491-A16F-4E87-AA17-399F50200658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79808491-A16F-4E87-AA17-399F50200658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79808491-A16F-4E87-AA17-399F50200658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1469052B-43FF-44ED-9182-FC0B9CFCA762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1469052B-43FF-44ED-9182-FC0B9CFCA762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1469052B-43FF-44ED-9182-FC0B9CFCA762}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1469052B-43FF-44ED-9182-FC0B9CFCA762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1469052B-43FF-44ED-9182-FC0B9CFCA762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1469052B-43FF-44ED-9182-FC0B9CFCA762}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
