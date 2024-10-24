@@ -46,7 +46,7 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/api/Pets/GetPets': {
+            '^/swagger': {
                 target: 'https://localhost:7187/',
                 secure: false
             }

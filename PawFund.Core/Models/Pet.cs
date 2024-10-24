@@ -1,8 +1,4 @@
-﻿using NpgsqlTypes;
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
-
-namespace PawFund.Core.Models
+﻿namespace PawFund.Core.Models
 {
     public class Pet
     {
@@ -19,11 +15,11 @@ namespace PawFund.Core.Models
     }
     public enum AdoptionStatus
     {
-        
+
         Available,
-       
+
         Pending,
-       
+
         Adopted
     }
 }
