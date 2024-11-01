@@ -5,12 +5,11 @@ import bannerImg from "assets/users/image/categories/banner.jpg";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./style.scss";
 import { AdoptCard } from "component";
-import petService from "services/petServices"; // Import the petService
+import petService from "services/petServices"; 
 
 const HomePage = () => {
     const [pets, setPets] = useState([]);
 
-    // Fetch data from API using petService
     useEffect(() => {
         const fetchPets = async () => {
             try {
@@ -23,7 +22,6 @@ const HomePage = () => {
         fetchPets();
     }, []);
 
-    // Responsive settings for Carousel
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -43,39 +41,63 @@ const HomePage = () => {
         },
     };
 
-    // Group pets by species for Tabs
     const groupedPets = pets.reduce(
         (acc, pet) => {
-            const groupKey = pet.species;
-            if (!acc[groupKey]) acc[groupKey] = [];
-            acc[groupKey].push(pet);
+            if (!acc.all) acc.all = { title: "Tất cả", products: [] };
+            acc.all.products.push(pet);
+    
+            if (pet.species === 'Dog') {
+                if (!acc.Dogs) acc.Dogs = { title: "Chó", products: [] };
+                acc.Dogs.products.push(pet);
+            } else if (pet.species === 'Cat') {
+                if (!acc.Cats) acc.Cats = { title: "Mèo", products: [] };
+                acc.Cats.products.push(pet);
+            } else {
+                if (!acc.Others) acc.Others = { title: "Khác", products: [] };
+                acc.Others.products.push(pet);
+            }
+            
             return acc;
         },
-        { all: pets }
+        {
+            all: { title: "Tất cả", products: [] },
+            Dogs: { title: "Chó", products: [] },
+            Cats: { title: "Mèo", products: [] },
+            Others: { title: "Khác", products: [] }
+        }
     );
+    
+    
+    
 
-    // Render Featured Products with Tabs
     const renderFeaturedProducts = (data) => {
         const tabList = [];
         const tabPanels = [];
-
+    
         Object.keys(data).forEach((key, index) => {
-            tabList.push(<Tab key={index}>{key === "all" ? "All" : key}</Tab>);
-
-            const tabPanelItems = data[key].map((pet, j) => (
-                <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={j}>
-                    <AdoptCard
-                        name={pet.name}
-                        age={`${pet.age} years`}
-                        gender={pet.gender}
-                        description={pet.description}
-                        img={pet.imageUrl}
-                    />
-                </div>
-            ));
-            tabPanels.push(<TabPanel key={index}><div className="row">{tabPanelItems}</div></TabPanel>);
+            tabList.push(<Tab key={index}>{data[key].title}</Tab>);
+    
+            const tabPanelItems = Array.isArray(data[key].products)
+                ? data[key].products.map((pet, j) => (
+                    <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={j}>
+                        <AdoptCard
+                            name={pet.name}
+                            age={`${pet.age} years`}
+                            gender={pet.gender}
+                            description={pet.description}
+                            img={pet.imageUrl}  
+                        />
+                    </div>
+                ))
+                : []; 
+    
+            tabPanels.push(
+                <TabPanel key={index}>
+                    <div className="row">{tabPanelItems}</div>
+                </TabPanel>
+            );
         });
-
+    
         return (
             <Tabs>
                 <TabList>{tabList}</TabList>
@@ -83,6 +105,7 @@ const HomePage = () => {
             </Tabs>
         );
     };
+    
 
     return (
         <>
@@ -95,11 +118,11 @@ const HomePage = () => {
                             style={{ backgroundImage: `url(${pet.imageUrl})` }}
                             key={key}
                         >
-                            <p>Name: {pet.name}</p>
-                            <p>Age: {pet.age} years</p>
-                            <p>Gender: {pet.gender}</p>
-                            <p>Status: {pet.status}</p>
-                            <button className="adopt-button">Adopt</button>
+                            <p>Tên: {pet.name}</p>
+                            <h>Tuổi: {pet.age} years</h>
+                            <j>Giới Tính: {pet.gender}</j>
+                            <k>Trạng Thái: {pet.status}</k>
+                            <button className="adopt-button">Nhận Nuôi</button>
                         </div>
                     ))}
                 </Carousel>
@@ -110,7 +133,7 @@ const HomePage = () => {
             <div className="container">
                 <div className="featured">
                     <div className="section-title">
-                        <h2>All Pets</h2>
+                        <h2>Tất Cả</h2>
                     </div>
                     {renderFeaturedProducts(groupedPets)}
                 </div>
