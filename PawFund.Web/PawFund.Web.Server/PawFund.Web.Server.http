@@ -1,6 +1,0 @@
-@PawFund.Web.Server_HostAddress = http://localhost:5015
-
-GET {{PawFund.Web.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
