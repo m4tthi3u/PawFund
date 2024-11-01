@@ -1,0 +1,27 @@
+@use "sass:map";
+@import "styles/pages/theme";
+
+.adopt__detail__pic {
+    display: flex;
+    column-gap: 10px;
+
+    img {
+        flex: 0 0 65%;
+        object-fit: cover;
+    }
+
+    .main {
+        flex: 0 0 35%;
+        display: grid;
+        align-items: stretch;
+
+        img {
+            width: 60%;
+            object-fit: cover;
+
+            &:not(:first-child) {
+                padding-top: 5px;
+            }
+        }
+    }
+}

@@ -1,0 +1,171 @@
+@use "sass:map";
+@import "theme";
+@import "responsive";
+@import "@fontsource/be-vietnam-pro";
+
+html,
+body {
+    margin: 0;
+}
+
+* {
+    font-family: "Be Vietnam Pro";
+    padding: 0;
+    margin: 0;
+}
+.container {
+    max-width: 1170px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// Thiết lập cột với chiều rộng dành cho màn hình nhỏ
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+// Thiết lập cột với chiều rộng dành cho màn hình lớn
+.col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.col-lg-4 {
+    flex: 0 0 33.333333333%;
+    max-width: 33.333333333%;
+}
+
+.col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-lg-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+//Tạo nút button
+.button-submit {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 16px 30px 17px;
+    background:map.get($theme-colors, "main");
+    border: none;
+    height: 100%;
+}
+
+.pl-pr-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #ebebeb;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #b2b2b2;
+    border-radius: 3px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+textarea {
+    padding-top: 10px;
+}
+
+//hiện thị trên màn Desktop
+@include Responsive($DESKTOP) {
+    .col-xl-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .col-xl-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+//Hiển thị trên màng Tablet
+@include Responsive($TABLE_DEVIDE) {
+    .container {
+        max-width: 720px;
+    }
+
+    .col-md-4 {
+        flex: 0 0 33.333333333%;
+        max-width: 33.333333333%;
+    }
+
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+//Hiển thị trên màn hình vừa
+@include Responsive($MEDIUM_DEVIDE) {
+    .container {
+        max-width: 960px !important;
+    }
+
+    .col-lg-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .col-lg-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+//hiển thị trên màn hình điện thoại
+@include Responsive($WIDE_DEVIDE) {
+    .container {
+        max-width: 540px !important;
+    }
+
+    .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+//hiển thị trên màn hình nhỏ
+@include Responsive($SMALL_DEVIDE) {
+    .container {
+        max-width: 350px !important;
+    }
+
+    .col-xs-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

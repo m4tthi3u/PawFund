@@ -1,10 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawFund.Presentation", "PawFund.Presentation\PawFund.Presentation.csproj", "{23DA60AF-40D0-494E-9813-DDFDF0145F59}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund.Presentation", "PawFund.Presentation\PawFund.Presentation.csproj", "{23DA60AF-40D0-494E-9813-DDFDF0145F59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawFund.Business", "PawFund.Business\PawFund.Business.csproj", "{30669BD2-D795-41E8-A28C-A1D3D49C709D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund.Business", "PawFund.Business\PawFund.Business.csproj", "{30669BD2-D795-41E8-A28C-A1D3D49C709D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawFund.Data", "PawFund.Data\PawFund.Data.csproj", "{F5985480-9B82-4498-A83B-A5E6D02D40AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PawFund.Data", "PawFund.Data\PawFund.Data.csproj", "{F5985480-9B82-4498-A83B-A5E6D02D40AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{F5620D48-8561-49C1-80F5-0AE4A3395DD4}"
+	ProjectSection(SolutionItems) = preProject
+		D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\.gitignore = D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\.gitignore
+		D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\jsconfig.json = D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\jsconfig.json
+		D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\package-lock.json = D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\package-lock.json
+		D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\package.json = D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\package.json
+		D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\README.md = D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\README.md
+		D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\yarn.lock = D:\Dữ Liệu\học tập\HK1_Năm 2\Công Nghệ Phần Mềm\PawFund\fe\pawfund\yarn.lock
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A7AA47CA-38CF-4DAB-BF69-719FF00E8112}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{731021FC-B897-4A58-9063-502C773A851C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +41,15 @@ Global
 		{F5985480-9B82-4498-A83B-A5E6D02D40AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5985480-9B82-4498-A83B-A5E6D02D40AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5985480-9B82-4498-A83B-A5E6D02D40AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7AA47CA-38CF-4DAB-BF69-719FF00E8112} = {F5620D48-8561-49C1-80F5-0AE4A3395DD4}
+		{731021FC-B897-4A58-9063-502C773A851C} = {F5620D48-8561-49C1-80F5-0AE4A3395DD4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB6A40DC-A279-4FD1-AF58-70613CA280AD}
 	EndGlobalSection
 EndGlobal

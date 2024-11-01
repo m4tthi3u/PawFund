@@ -16,4 +16,8 @@
     <ProjectReference Include="..\PawFund.Business\PawFund.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ClientApp\src\services\" />
+  </ItemGroup>
+
 </Project>
