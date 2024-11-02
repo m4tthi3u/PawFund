@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PawFund.Business.DTOs;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Models;
@@ -15,7 +16,7 @@ namespace PawFund.Presentation.Controllers
         {
             _eventService = eventService;
         }
-
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EventResponseDto>>> GetEvents()
         {
@@ -34,7 +35,8 @@ namespace PawFund.Presentation.Controllers
             }
             return Ok(MapToResponseDto(@event));
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPost]
         public async Task<ActionResult<EventResponseDto>> CreateEvent(EventCreateDto createDto)
         {
@@ -44,7 +46,8 @@ namespace PawFund.Presentation.Controllers
             var responseDto = MapToResponseDto(@event);
             return CreatedAtAction(nameof(GetEvent), new { id = @event.Id }, responseDto);
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEvent(int id, EventCreateDto updateDto)
         {
@@ -58,7 +61,8 @@ namespace PawFund.Presentation.Controllers
             await _eventService.UpdateEventAsync(existingEvent);
             return NoContent();
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEvent(int id)
         {
@@ -71,7 +75,7 @@ namespace PawFund.Presentation.Controllers
             await _eventService.DeleteEventAsync(id);
             return NoContent();
         }
-
+        
         private EventResponseDto MapToResponseDto(Event @event)
         {
             return new EventResponseDto

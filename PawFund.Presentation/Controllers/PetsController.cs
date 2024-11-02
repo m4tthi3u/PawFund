@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using PawFund.Business.DTOs;
 using PawFund.Business.Services.Interfaces;
@@ -44,7 +45,8 @@ namespace PawFund.Presentation.Controllers
             var petDtos = pets.Select(MapToResponseDto);
             return Ok(petDtos);
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPost]
         public async Task<ActionResult<PetResponseDto>> AddPet(PetCreateDto createDto)
         {
@@ -53,7 +55,8 @@ namespace PawFund.Presentation.Controllers
             var responseDto = MapToResponseDto(pet);
             return CreatedAtAction(nameof(GetPet), new { id = pet.Id }, responseDto);
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePet(int id, PetUpdateDto updateDto)
         {
@@ -62,13 +65,13 @@ namespace PawFund.Presentation.Controllers
             {
                 return NotFound();
             }
-
-            // Update existing pet with DTO values
+            
             UpdateEntityFromDto(existingPet, updateDto);
             await _petService.UpdatePetAsync(existingPet);
             return NoContent();
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePet(int id)
         {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PawFund.Business.DTOs;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Models;
@@ -15,7 +16,8 @@ namespace PawFund.Presentation.Controllers
         {
             _userService = userService;
         }
-
+        
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserResponseDto>>> GetUsers()
         {
@@ -23,7 +25,8 @@ namespace PawFund.Presentation.Controllers
             var userDtos = users.Select(MapToResponseDto);
             return Ok(userDtos);
         }
-
+        
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public async Task<ActionResult<UserResponseDto>> GetUser(int id)
         {
@@ -34,7 +37,8 @@ namespace PawFund.Presentation.Controllers
             }
             return Ok(MapToResponseDto(user));
         }
-
+        
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<UserResponseDto>> CreateUser(UserCreateDto createDto)
         {
@@ -46,7 +50,8 @@ namespace PawFund.Presentation.Controllers
             var responseDto = MapToResponseDto(user);
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, responseDto);
         }
-
+        
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, UserUpdateDto updateDto)
         {
@@ -60,7 +65,8 @@ namespace PawFund.Presentation.Controllers
             await _userService.UpdateUserAsync(existingUser);
             return NoContent();
         }
-
+        
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {

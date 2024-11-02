@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PawFund.Business.DTOs;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Models;
@@ -34,7 +35,8 @@ namespace PawFund.Presentation.Controllers
             }
             return Ok(MapToResponseDto(shelter));
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPost]
         public async Task<ActionResult<ShelterResponseDto>> CreateShelter(ShelterCreateDto createDto)
         {
@@ -44,7 +46,8 @@ namespace PawFund.Presentation.Controllers
             var responseDto = MapToResponseDto(shelter);
             return CreatedAtAction(nameof(GetShelter), new { id = shelter.Id }, responseDto);
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateShelter(int id, ShelterCreateDto updateDto)
         {
@@ -58,7 +61,8 @@ namespace PawFund.Presentation.Controllers
             await _shelterService.UpdateShelterAsync(existingShelter);
             return NoContent();
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteShelter(int id)
         {

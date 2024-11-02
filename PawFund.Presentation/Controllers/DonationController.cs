@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PawFund.Business.DTOs;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Models;
@@ -15,7 +16,8 @@ namespace PawFund.Presentation.Controllers
         {
             _donationService = donationService;
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DonationResponseDto>>> GetDonations()
         {
@@ -23,7 +25,8 @@ namespace PawFund.Presentation.Controllers
             var donationDtos = donations.Select(MapToResponseDto);
             return Ok(donationDtos);
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpGet("{id}")]
         public async Task<ActionResult<DonationResponseDto>> GetDonationById(int id)
         {
@@ -34,7 +37,8 @@ namespace PawFund.Presentation.Controllers
             }
             return Ok(MapToResponseDto(donation));
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpGet("user/{userId}")]
         public async Task<ActionResult<IEnumerable<DonationResponseDto>>> GetDonationByUserId(int userId)
         {
@@ -42,7 +46,8 @@ namespace PawFund.Presentation.Controllers
             var donationDtos = donations.Select(MapToResponseDto);
             return Ok(donationDtos);
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPost]
         public async Task<ActionResult<DonationResponseDto>> AddDonation(DonationCreateDto createDto)
         {
@@ -55,7 +60,8 @@ namespace PawFund.Presentation.Controllers
             var responseDto = MapToResponseDto(donation);
             return CreatedAtAction(nameof(GetDonationById), new { id = donation.Id }, responseDto);
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateDonation(int id, DonationUpdateDto updateDto)
         {
@@ -74,7 +80,8 @@ namespace PawFund.Presentation.Controllers
             await _donationService.UpdateDonationAsync(existingDonation);
             return NoContent();
         }
-
+        
+        [Authorize(Roles = "Admin, Staff")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDonation(int id)
         {
@@ -87,8 +94,7 @@ namespace PawFund.Presentation.Controllers
             await _donationService.DeleteDonationAsync(id);
             return NoContent();
         }
-
-        // Helper methods for mapping
+        
         private DonationResponseDto MapToResponseDto(Donation donation)
         {
             return new DonationResponseDto
