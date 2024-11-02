@@ -1,4 +1,4 @@
-namespace PawFund.Presentation.DTOs
+namespace PawFund.Business.DTOs
 {
 
     public class EventCreateDto

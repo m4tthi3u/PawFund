@@ -1,6 +1,6 @@
 using PawFund.Data.Models;
 
-namespace PawFund.Presentation.DTOs
+namespace PawFund.Business.DTOs
 {
 
     public class UserCreateDto

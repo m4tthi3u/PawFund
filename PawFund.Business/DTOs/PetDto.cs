@@ -1,7 +1,6 @@
-using System.Text.Json.Serialization;
 using PawFund.Data.Models;
 
-namespace PawFund.Presentation.DTOs
+namespace PawFund.Business.DTOs
 {
 
     public class PetCreateDto

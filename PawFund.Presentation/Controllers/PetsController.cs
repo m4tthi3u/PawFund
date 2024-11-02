@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using PawFund.Business.DTOs;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Models;
-using PawFund.Presentation.DTOs;
 
 namespace PawFund.Presentation.Controllers
 {
