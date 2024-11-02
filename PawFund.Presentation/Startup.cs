@@ -1,5 +1,8 @@
+using System.Text;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PawFund.Business.Services.Implementations;
 using PawFund.Business.Services.Interfaces;
@@ -22,6 +25,25 @@ public class Startup
 
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            var key = Encoding.ASCII.GetBytes(Configuration["Jwt:Key"]) ?? throw new InvalidOperationException("JWT Key not found");
+            services.AddAuthentication(option =>
+                {
+                    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(option =>
+                {
+                    option.RequireHttpsMetadata = false;
+                    option.SaveToken = true;
+                    option.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
             services.AddControllers()
                 .AddJsonOptions(options =>
                 {
@@ -49,6 +71,30 @@ public class Startup
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PawFund API", Version = "v1" });
                 c.UseInlineDefinitionsForEnums();
+                
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token in the text input below.",
+                    Name = "Authorisation",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+                
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme()
+                        {
+                            Reference = new OpenApiReference()
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
             });
 
             services.AddCors(options =>
@@ -76,6 +122,7 @@ public class Startup
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("AllowAll");
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
