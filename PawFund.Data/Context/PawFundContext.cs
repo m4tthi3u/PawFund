@@ -27,7 +27,7 @@ namespace PawFund.Data.Context
             modelBuilder.Entity<Pet>()
                 .Property(e => e.Status)
                 .HasConversion(
-                    v => v.ToString(), // Convert enum to string when saving
+                    v => v.ToString(),
                     v => Enum.Parse<AdoptionStatus>(v));
                 
 

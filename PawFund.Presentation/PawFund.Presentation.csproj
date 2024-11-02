@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\services\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>
