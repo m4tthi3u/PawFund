@@ -6,6 +6,8 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./style.scss";
 import { AdoptCard } from "component";
 import petService from "services/petServices"; 
+import { Link } from "react-router-dom";
+import { ROUTER } from "utils/router";
 
 const HomePage = () => {
     const [pets, setPets] = useState([]);
@@ -14,6 +16,7 @@ const HomePage = () => {
         const fetchPets = async () => {
             try {
                 const response = await petService.getAll();
+                console.log("API response data:", response.data);
                 setPets(response.data);
             } catch (error) {
                 console.error("Error fetching pets data:", error);
@@ -122,7 +125,9 @@ const HomePage = () => {
                             <h>Tuổi: {pet.age} years</h>
                             <j>Giới Tính: {pet.gender}</j>
                             <k>Trạng Thái: {pet.status}</k>
+                            <Link to={ROUTER.USER.ADOPTS}>
                             <button className="adopt-button">Nhận Nuôi</button>
+                            </Link>
                         </div>
                     ))}
                 </Carousel>
