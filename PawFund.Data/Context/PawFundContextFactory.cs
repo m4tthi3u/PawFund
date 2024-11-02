@@ -10,7 +10,7 @@ namespace PawFund.Data.Context
             var optionsBuilder = new DbContextOptionsBuilder<PawFundContext>();
             
             // Replace this connection string with your actual connection string
-            optionsBuilder.UseNpgsql("Host=localhost;Database=PawFund;Username=postgres;Password=Lam13492");
+            optionsBuilder.UseNpgsql("Host=localhost;Database=PawFund;Username=postgres;Password=");
 
             return new PawFundContext(optionsBuilder.Options);
         }
