@@ -18,6 +18,7 @@ namespace PawFund.Data.Repositories.Implementations
         {
             return await _context.UserPets
                 .Include(up => up.Pet)
+                .Include(up => up.User)
                 .Where(up => up.UserId == userId)
                 .ToListAsync();
         }
@@ -26,6 +27,7 @@ namespace PawFund.Data.Repositories.Implementations
         {
             return await _context.UserPets
                 .Include(up => up.Pet)
+                .Include(up => up.User)
                 .FirstOrDefaultAsync(up => up.Id == id);
         }
 
@@ -33,6 +35,7 @@ namespace PawFund.Data.Repositories.Implementations
         {
             return await _context.UserPets
                 .Include(up => up.Pet)
+                .Include(up => up.User)
                 .FirstOrDefaultAsync(up => up.UserId == userId && up.PetId == petId);
         }
 
