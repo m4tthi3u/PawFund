@@ -90,7 +90,7 @@ namespace PawFund.Presentation.Controllers
             return Ok(petDtos);
         }
         
-        [Authorize(Roles = "Admin, Staff")]
+        [Authorize(Roles = "Admin, Staff, User")]
         [HttpPost]
         public async Task<ActionResult<PetResponseDto>> AddPet(PetCreateDto createDto)
         {
