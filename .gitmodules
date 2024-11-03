@@ -1,0 +1,3 @@
+[submodule "PawFund-AdminDashboard"]
+	path = PawFund-AdminDashboard
+	url = https://github.com/m4tthi3u/PawFund-AdminDashboard
