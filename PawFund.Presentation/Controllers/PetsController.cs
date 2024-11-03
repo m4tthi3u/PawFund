@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using PawFund.Business.DTOs;
@@ -13,10 +14,53 @@ namespace PawFund.Presentation.Controllers
     public class PetsController : ControllerBase
     {
         private readonly IPetService _petService;
+        private readonly IUserPetService _userPetService;
 
-        public PetsController(IPetService petService)
+        public PetsController(IPetService petService, IUserPetService userPetService)
         {
             _petService = petService;
+            _userPetService = userPetService;
+        }
+        
+        [Authorize]
+        [HttpPost("{id}")]
+        public async Task<IActionResult> AdoptPet(int id)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("User ID not found in token");
+            }
+
+            if (!int.TryParse(userIdClaim.Value, out int userId))
+            {
+                return BadRequest("Invalid user ID");
+            }
+
+            var pet = await _petService.GetPetByIdAsync(id);
+            if (pet == null)
+            {
+                return NotFound();
+            }
+
+            if (pet.Status != AdoptionStatus.Available)
+            {
+                return BadRequest("This pet is not available for adoption");
+            }
+
+            var userPet = new UserPet
+            {
+                UserId = userId,
+                PetId = id,
+                AdoptionDate = DateTime.UtcNow,
+                Status = AdoptionStatus.Pending
+            };
+
+            pet.Status = AdoptionStatus.Pending;
+            await _petService.UpdatePetAsync(pet);
+            await _userPetService.AddUserPetAsync(userPet);
+
+            return Ok();
         }
 
         [HttpGet]
