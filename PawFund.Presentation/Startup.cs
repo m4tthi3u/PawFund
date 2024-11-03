@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -7,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using PawFund.Business.Services.Implementations;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Context;
+using PawFund.Data.Models;
 using PawFund.Data.Repositories.Implementations;
 using PawFund.Data.Repositories.Interfaces;
 using PawFund.Web.Server.Repositories;
@@ -25,8 +27,7 @@ public class Startup
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            var key = Encoding.ASCII.GetBytes(Configuration["Jwt:Key"]) ?? throw new InvalidOperationException("JWT Key not found");
+            var key = Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]) ?? throw new InvalidOperationException("JWT Key not found");
             services.AddAuthentication(option =>
                 {
                     option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -59,12 +60,14 @@ public class Startup
             services.AddScoped<IShelterRepository, ShelterRepository>();
             services.AddScoped<IDonationRepository, DonationRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IUserPetRepository, UserPetRepository>();
             
             services.AddScoped<IPetService, PetService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IShelterService, ShelterService>();
             services.AddScoped<IDonationService, DonationService>();
             services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IUserPetService, UserPetService>();
             
 
             services.AddSwaggerGen(c =>
