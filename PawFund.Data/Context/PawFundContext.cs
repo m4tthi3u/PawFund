@@ -9,6 +9,7 @@ namespace PawFund.Data.Context
         public PawFundContext(DbContextOptions<PawFundContext> options) : base(options) { }
 
         public DbSet<Pet> Pets { get; set; }
+        public DbSet<UserPet> UserPets { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Shelter> Shelters { get; set; }
         public DbSet<Donation> Donations { get; set; }
@@ -35,6 +36,18 @@ namespace PawFund.Data.Context
                 .HasOne<Shelter>()
                 .WithMany()
                 .HasForeignKey(p => p.ShelterId);
+            
+            modelBuilder.Entity<UserPet>()
+                .HasOne(up => up.User)
+                .WithMany()
+                .HasForeignKey(up => up.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<UserPet>()
+                .HasOne(up => up.Pet)
+                .WithMany()
+                .HasForeignKey(up => up.PetId)
+                .OnDelete(DeleteBehavior.Cascade);
                 
 
             modelBuilder.Entity<Donation>()
