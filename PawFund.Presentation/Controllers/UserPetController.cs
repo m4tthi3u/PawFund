@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Models;
 using System.Security.Claims;
+using PawFund.Business.DTOs;
 
 namespace PawFund.Presentation.Controllers
 {
@@ -21,7 +22,7 @@ namespace PawFund.Presentation.Controllers
 
         [Authorize]
         [HttpGet("mypets")]
-        public async Task<ActionResult<IEnumerable<UserPet>>> GetUserPets()
+        public async Task<ActionResult<IEnumerable<UserPetDto>>> GetUserPets()
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
@@ -35,7 +36,36 @@ namespace PawFund.Presentation.Controllers
             }
 
             var userPets = await _userPetService.GetUserPetsAsync(userId);
-            return Ok(userPets);
+            var userPetDtos = userPets.Select(up => new UserPetDto
+            {
+                Id = up.Id,
+                UserId = up.UserId,
+                PetId = up.PetId,
+                AdoptionDate = up.AdoptionDate,
+                Status = up.Status,
+                User = new UserResponseDto
+                {
+                    Id = up.User.Id,
+                    Username = up.User.Username,
+                    Email = up.User.Email,
+                    Role = up.User.Role
+                },
+                Pet = new PetResponseDto
+                {
+                    Id = up.Pet.Id,
+                    Name = up.Pet.Name,
+                    Species = up.Pet.Species,
+                    Breed = up.Pet.Breed,
+                    Age = up.Pet.Age,
+                    Gender = up.Pet.Gender,
+                    Description = up.Pet.Description,
+                    ImageUrl = up.Pet.ImageUrl,
+                    Status = up.Pet.Status,
+                    ShelterId = up.Pet.ShelterId
+                }
+            }).ToList();
+
+            return Ok(userPetDtos);
         }
 
         [Authorize]
