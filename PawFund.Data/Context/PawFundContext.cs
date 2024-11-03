@@ -48,6 +48,12 @@ namespace PawFund.Data.Context
                 .WithMany()
                 .HasForeignKey(up => up.PetId)
                 .OnDelete(DeleteBehavior.Cascade);
+            
+            modelBuilder.Entity<UserPet>()
+                .Property(e => e.Status)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => Enum.Parse<AdoptionStatus>(v));
                 
 
             modelBuilder.Entity<Donation>()
