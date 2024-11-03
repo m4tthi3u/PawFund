@@ -1,33 +1,33 @@
 @use "sass:map";
+@import "styles/pages/theme";
 @import "styles/pages/all";
 
-.featured__item {
+
+.donation__item {
     margin-bottom: 50px;
 
     &:hover {
-        .featured__item__pic__hover {
+        .donation__item__pic__hover {
             top: 80% !important;
         }
-
     }
 
-    .featured__item__pic {
+    .donation__item__pic {
         height: 270px;
         position: relative;
-        background-position:center !important;
+        background-position: center !important;
         overflow: hidden;
         background-size: cover !important;
-        
 
-        .featured__item__pic__hover{
+        .donation__item__pic__hover {
             position: absolute;
             left: 30%;
             top: 120%;
             width: 100%;
-            text-align: center center !important;
-            transition: all, 0.5s;
+            text-align: center !important;
+            transition: all 0.5s;
 
-            li{
+            li {
                 list-style: none;
                 display: inline-block;
                 margin-right: 10px;
@@ -40,6 +40,7 @@
                         transform: rotate(360deg) !important;
                     }
                 }
+
                 svg {
                     padding: 10px;
                     height: 20px;
@@ -47,14 +48,14 @@
                     border: 1px solid #ebebeb;
                     background: #ffffff;
                     color: #565555;
-                    transition: all, 0.3s;
+                    transition: all 0.3s;
                     border-radius: 50%;
                 }
             }
         }
     }
 
-    .featured__item__text {
+    .donation__item__text {
         text-align: left;
 
         p {
@@ -62,12 +63,10 @@
             font-size: 16px;
             font-weight: 400;
 
-            a{
+            a {
                 color: black;
                 text-decoration: none;
             }
         }
-
     }
-
 }

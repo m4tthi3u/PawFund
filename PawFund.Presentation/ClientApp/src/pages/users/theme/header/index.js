@@ -58,10 +58,6 @@ const Header = () => {
             path: ROUTER.USER.VOLUNTEER,
         },
         {
-            name: "Tin Tức",
-            path: ROUTER.USER.NEWS,
-        },
-        {
             name: "Liên Hệ ",
             path: ROUTER.USER.CONTACT,
         },
@@ -243,7 +239,7 @@ const Header = () => {
                             </div>
                             <ul>
                                 <li>
-                                    <Link to="#">
+                                    <Link to= {ROUTER.USER.HOME_CART}>
                                         <AiOutlineHome /> <span>2</span>
                                     </Link>
                                 </li>
@@ -299,7 +295,7 @@ const Header = () => {
                                     <h2>Cún yêu <br />
                                         ngoan ngoãn</h2>
                                     <p>Hãy nhận nuôi chúng em</p>
-                                    <Link to="" className="primary-btn">Nhận Nuôi Ngay</Link>
+                                    <Link to={ROUTER.USER.ADOPT} className="primary-btn">Nhận Nuôi Ngay</Link>
                                 </div>
                             </div>
                         )}

@@ -1,3 +1,6 @@
 import {default as AdoptCard} from "./AdoptCard";
+import {default as DonationCard} from "./DonationCard";
+import {default as Quantity} from "./Quantity";
 
-export {AdoptCard};
+
+export {AdoptCard, Quantity, DonationCard};

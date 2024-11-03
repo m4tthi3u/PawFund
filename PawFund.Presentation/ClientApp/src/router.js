@@ -6,6 +6,10 @@ import MasterLayout from "./pages/users/theme/masterLayout";
 import ProfilePage from "./pages/users/profilePage";
 import AdoptPage from "./pages/users/adoptPage";
 import AdoptDetailPage from "./pages/users/adoptDetailPage";
+import HomeCartPage from "pages/users/homeCartPage";
+import DonationPage from "pages/users/donationPage";
+import VolunteerPage from "pages/users/volunteerPage";
+import ContactPage from "pages/users/contactPage";
 
 const renderUserRouter = () => {
     const userRouters = [
@@ -25,7 +29,22 @@ const renderUserRouter = () => {
             path: ROUTER.USER.ADOPTS,
             Component: <AdoptDetailPage />,
         },
-        
+        {
+            path: ROUTER.USER.HOME_CART,
+            Component: <HomeCartPage />,
+        },
+        {
+            path: ROUTER.USER.DONATE,
+            Component: <DonationPage />,
+        },
+        {
+            path: ROUTER.USER.VOLUNTEER,
+            Component: <VolunteerPage />,
+        },
+        {
+            path: ROUTER.USER.CONTACT,
+            Component: <ContactPage />,
+        },
         
     ];
 

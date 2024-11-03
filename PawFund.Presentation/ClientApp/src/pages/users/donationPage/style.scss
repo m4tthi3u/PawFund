@@ -1,0 +1,110 @@
+@use "sass:map";
+@import "styles/pages/theme";
+@import "styles/pages/all";
+
+.donation-page {
+    .text-capitalize {
+        font-weight: bold;
+        color: #333;
+        font-size: 2rem;
+    }
+
+    .small-divider {
+        width: 50px;
+        border-top: 2px solid #333;
+        margin: 0.5rem 0 1.5rem 0;
+    }
+
+    .donation__content {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 20px;
+
+        .donation__text {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+
+            p {
+                margin-bottom: 1rem;
+            }
+
+            strong {
+                color: #333;
+            }
+            
+            a {
+                color: white;
+                font-weight: 700;
+                text-transform: 2px;
+                padding: 12px 0 10px;
+                cursor: pointer;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: unset !important;
+                }
+            }
+            
+        }
+
+        .donation__image {
+            text-align: center;
+
+            img {
+                max-width: 100%;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .donation__list {
+            margin-top: 20px;
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    margin-bottom: 5px;
+
+                    a {
+                        left: 5% !important;
+                        bottom: 60px;
+                        text-align: left;
+                        color: white;
+                        font-weight: 700;
+                        text-transform: 2px;
+                        padding: 12px 0 10px;
+                        cursor: pointer;
+                        text-shadow: 
+                        -1px -1px 0 #000,  
+                        1px -1px 0 #000,
+                        -1px  1px 0 #000,
+                        1px  1px 0 #000; 
+                        text-decoration: none;
+        
+                        &:hover {
+                            text-decoration: unset !important;
+                        }
+                    }
+
+                    .button-submit {
+                        font-size: 14px;
+                        color: #ffffff !important;
+                        font-weight: 800;
+                        text-transform: uppercase;
+                        display: inline-block;
+                        padding: 16px 30px 17px;
+                        background:map.get($theme-colors, "main");
+                        border: none;
+                        height: 100%;
+                    }
+                }  
+            }
+        } 
+    }
+}
