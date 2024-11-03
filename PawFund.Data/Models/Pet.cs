@@ -21,6 +21,7 @@ namespace PawFund.Data.Models
     [JsonConverter(typeof(JsonStringEnumConverter<AdoptionStatus>))]
     public enum AdoptionStatus 
     {
+        Aprroved,
         Available,
         Pending,
         Adopted
