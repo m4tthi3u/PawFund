@@ -14,9 +14,7 @@ namespace PawFund.Data.Models
     public enum UserRole
     {
         Guest,
-        Adopter,
-        Donor,
-        Volunteer,
+        User,
         Staff,
         Admin
     }
