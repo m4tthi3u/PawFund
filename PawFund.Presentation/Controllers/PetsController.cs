@@ -128,6 +128,22 @@ namespace PawFund.Presentation.Controllers
             await _petService.DeletePetAsync(id);
             return NoContent();
         }
+
+        [Authorize(Roles = "Admin, Staff")]
+        [HttpPost("{id}")]
+        public async Task<IActionResult> MarkPetAs(int id, [FromBody] AdoptionStatus newStatus)
+        {
+            var pet = await _petService.GetPetByIdAsync(id);
+            if (pet == null)
+            {
+                return NotFound("Pet not found");
+            }
+
+            pet.Status = newStatus;
+            await _petService.UpdatePetAsync(pet);
+
+            return Ok("Pet status updated successfully");
+        }
         
         private PetResponseDto MapToResponseDto(Pet pet)
         {
