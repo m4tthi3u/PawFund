@@ -82,8 +82,7 @@ namespace PawFund.Presentation.Controllers
             {
                 return BadRequest("Invalid user ID");
             }
-
-            // Check if pet exists and is available
+            
             var pet = await _petService.GetPetByIdAsync(petId);
             if (pet == null)
             {
@@ -94,8 +93,7 @@ namespace PawFund.Presentation.Controllers
             {
                 return BadRequest("This pet is not available for adoption");
             }
-
-            // Check if user already has a pending or approved adoption for this pet
+            
             var existingUserPet = await _userPetService.GetUserPetByUserAndPetIdAsync(userId, petId);
             if (existingUserPet != null)
             {
@@ -129,12 +127,10 @@ namespace PawFund.Presentation.Controllers
             {
                 return NotFound("Adoption record not found");
             }
-
-            // Update the adoption status
+            
             userPet.Status = newStatus;
             await _userPetService.UpdateUserPetAsync(userPet);
-
-            // Update the pet's status accordingly
+            
             var pet = await _petService.GetPetByIdAsync(userPet.PetId);
             if (pet != null)
             {
