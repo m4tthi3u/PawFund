@@ -171,7 +171,7 @@ namespace PawFund.Presentation.Controllers
                 return Unauthorized("You can only cancel your own adoption requests");
             }
 
-            if (userPet.Status == AdoptionStatus.Aprroved)
+            if (userPet.Status == AdoptionStatus.Approved)
             {
                 return BadRequest("Cannot cancel an approved adoption");
             }
