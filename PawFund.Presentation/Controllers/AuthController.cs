@@ -23,7 +23,6 @@ namespace PawFund.Presentation.Controllers
             _configuration = configuration;
         }
         
-
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login([FromBody] LoginModel model)
         {
