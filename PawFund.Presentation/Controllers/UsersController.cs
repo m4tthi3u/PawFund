@@ -38,7 +38,6 @@ namespace PawFund.Presentation.Controllers
             return Ok(MapToResponseDto(user));
         }
         
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<UserResponseDto>> CreateUser(UserCreateDto createDto)
         {
