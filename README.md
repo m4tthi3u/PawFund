@@ -4,9 +4,9 @@
 
 ### Connecting Hearts, Saving Paws
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v3](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Node.js Version](https://img.shields.io/badge/Node.js-16.x-green)](https://nodejs.org)
+[![Node.js Version](https://img.shields.io/badge/Node.js-20.x-green)](https://nodejs.org)
 [![.NET Version](https://img.shields.io/badge/.NET-8.0-purple)](https://dotnet.microsoft.com)
 
 *A platform designed to support adopting and fundraising for abandoned pets.*
