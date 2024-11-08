@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using PawFund.Business.DTOs;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Models;
+using PawFund.Presentation.Hubs;
 
 namespace PawFund.Presentation.Controllers
 {
@@ -15,11 +17,13 @@ namespace PawFund.Presentation.Controllers
     {
         private readonly IPetService _petService;
         private readonly IUserPetService _userPetService;
+        private readonly IHubContext<PawFundHub> _hubContext;
 
-        public PetsController(IPetService petService, IUserPetService userPetService)
+        public PetsController(IPetService petService, IUserPetService userPetService, IHubContext<PawFundHub> hubContext)
         {
             _petService = petService;
             _userPetService = userPetService;
+            _hubContext = hubContext;
         }
         
         [Authorize]
@@ -112,6 +116,7 @@ namespace PawFund.Presentation.Controllers
             
             UpdateEntityFromDto(existingPet, updateDto);
             await _petService.UpdatePetAsync(existingPet);
+            await _hubContext.Clients.All.SendAsync("PetStatusUpdated", existingPet.Name, updateDto.Status);
             return NoContent();
         }
         

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using PawFund.Business.DTOs;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Models;
+using PawFund.Presentation.Hubs;
 
 namespace PawFund.Presentation.Controllers
 {
@@ -11,10 +13,12 @@ namespace PawFund.Presentation.Controllers
     public class DonationController : ControllerBase
     {
         private readonly IDonationService _donationService;
+        private readonly IHubContext<PawFundHub> _hubContext;
 
-        public DonationController(IDonationService donationService)
+        public DonationController(IDonationService donationService, IHubContext<PawFundHub> hubContext)
         {
             _donationService = donationService;
+            _hubContext = hubContext;
         }
         
         [Authorize(Roles = "Admin, Staff")]
@@ -56,6 +60,7 @@ namespace PawFund.Presentation.Controllers
             donation.Status = DonationStatus.Pending;
 
             await _donationService.AddDonationAsync(donation);
+            await _hubContext.Clients.All.SendAsync("DonationAdded", donation.PetName, donation.Amount);
             
             var responseDto = MapToResponseDto(donation);
             return CreatedAtAction(nameof(GetDonationById), new { id = donation.Id }, responseDto);
@@ -105,6 +110,7 @@ namespace PawFund.Presentation.Controllers
                 PetId = donation.PetId,
                 Amount = donation.Amount,
                 DonationDate = donation.DonationDate,
+                PetName = donation.PetName,
                 Status = donation.Status,
                 PaymentMethod = donation.PaymentMethod
             };
@@ -117,6 +123,7 @@ namespace PawFund.Presentation.Controllers
                 UserId = dto.UserId,
                 ShelterId = dto.ShelterId,
                 PetId = dto.PetId,
+                PetName = dto.PetName,
                 Amount = dto.Amount,
                 PaymentMethod = dto.PaymentMethod,
                 DonationDate = DateTime.UtcNow,
