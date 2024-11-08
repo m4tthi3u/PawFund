@@ -7,6 +7,7 @@ namespace PawFund.Data.Models
         public int? ShelterId { get; set; }
 
         public int PetId { get; set; }
+        public string PetName { get; set; }
         public decimal Amount { get; set; }
         public DateTime DonationDate { get; set; }
         public DonationStatus Status { get; set; }
