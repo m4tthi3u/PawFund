@@ -8,9 +8,9 @@ using Microsoft.OpenApi.Models;
 using PawFund.Business.Services.Implementations;
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Context;
-using PawFund.Data.Models;
 using PawFund.Data.Repositories.Implementations;
 using PawFund.Data.Repositories.Interfaces;
+using PawFund.Presentation.Hubs;
 using PawFund.Web.Server.Repositories;
 using PawFund.Web.Server.Services;
 
@@ -53,7 +53,7 @@ public class Startup
             services.AddDbContext<PawFundContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddLogging();
-
+            services.AddSignalR();
             
             services.AddScoped<IPetRepository, PetRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
@@ -102,11 +102,12 @@ public class Startup
 
             services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
+    options.AddPolicy("CorsPolicy",
         builder => builder
-            .AllowAnyOrigin()
+            .WithOrigins("http://localhost:3000")
             .AllowAnyHeader()
-            .AllowAnyMethod());
+            .AllowAnyMethod()
+            .AllowCredentials());
 });
         }
 
@@ -124,11 +125,12 @@ public class Startup
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseCors("AllowAll");
+            app.UseCors("CorsPolicy");
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<PawFundHub>("/pawfundhub");
                 endpoints.MapControllers();
             });
         }
