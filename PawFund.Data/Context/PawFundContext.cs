@@ -75,12 +75,18 @@ namespace PawFund.Data.Context
             modelBuilder.Entity<Donation>()
                 .HasOne<Shelter>()
                 .WithMany()
-                .HasForeignKey(d => d.ShelterId);
+                .HasForeignKey(d => d.ShelterId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Donation>()
+                .HasOne<Pet>()
+                .WithMany()
+                .HasForeignKey(d => d.PetId);
 
             modelBuilder.Entity<Event>()
                 .HasOne<Shelter>()
                 .WithMany()
                 .HasForeignKey(e => e.ShelterId);
+            
         }
     }
 }
