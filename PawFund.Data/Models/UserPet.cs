@@ -9,7 +9,6 @@ namespace PawFund.Data.Models
         public int PetId { get; set; }
         public DateTime AdoptionDate { get; set; }
         public AdoptionStatus Status { get; set; } 
-
         public User User { get; set; }
         public Pet Pet { get; set; }
     }

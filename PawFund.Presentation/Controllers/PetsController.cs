@@ -10,7 +10,6 @@ using PawFund.Presentation.Hubs;
 
 namespace PawFund.Presentation.Controllers
 {
-    [EnableCors]
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class PetsController : ControllerBase

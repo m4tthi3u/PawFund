@@ -18,7 +18,6 @@ namespace PawFund.Data.Models
         public int ShelterId { get; set; }
     }
     
-    [JsonConverter(typeof(JsonStringEnumConverter<AdoptionStatus>))]
     public enum AdoptionStatus 
     {
         Approved,

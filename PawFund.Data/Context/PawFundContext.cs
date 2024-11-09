@@ -86,7 +86,6 @@ namespace PawFund.Data.Context
                 .HasOne<Shelter>()
                 .WithMany()
                 .HasForeignKey(e => e.ShelterId);
-            
         }
     }
 }
