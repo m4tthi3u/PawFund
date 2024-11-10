@@ -4,429 +4,422 @@
 
 $bannerImg: "/assets/users/image/hero/Cho-Poodle.jpg";
 .header__top {
-    background: #f5f5f5;
-    background: #ffc107;
+  background: #f5f5f5;
+  background: #ffc107;
 }
 
 .header__top_left {
-    ul {
-        display: flex;
-        align-items: center;
-        padding: 10px 0 13px;
-        list-style: none;
-        column-gap: 20px;
+  ul {
+    display: flex;
+    align-items: center;
+    padding: 10px 0 13px;
+    list-style: none;
+    column-gap: 20px;
 
-        li {
-            font-size: 14px;
-            color: black;
-            display: flex;
-            align-items:center;
-            column-gap: 2px;
-        }
-        li:first-child {
-            position: relative;
-            &::after {
-                position: absolute;
-                right: -10px;
-                top: 1px;
-                height: 20px;
-                width: 1px;
-                background: #000;
-                opacity: 0.1;
-                content: "";
-            }
-
-        }
+    li {
+      font-size: 14px;
+      color: black;
+      display: flex;
+      align-items: center;
+      column-gap: 2px;
     }
+    li:first-child {
+      position: relative;
+      &::after {
+        position: absolute;
+        right: -10px;
+        top: 1px;
+        height: 20px;
+        width: 1px;
+        background: #000;
+        opacity: 0.1;
+        content: "";
+      }
+    }
+  }
 }
 
 .header__top-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 0 13px;
+
+  ul {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px 0 13px;
+    column-gap: 5px;
+    list-style: none;
 
-    ul {
-        display: flex;
-        column-gap: 5px;
-        list-style: none;
-
-        a {
-            font-size: 14px;
-            color: black;
-        }
-
-        li:last-child {
-            cursor: pointer;
-            margin-left: 10px;
-
-
-            span {
-                font-size: 14px;
-                margin-left: 2px;
-            }
-        }
-
-        span {
-            font-size: 14px;
-            margin-left: 2px;
-        }
+    a {
+      font-size: 14px;
+      color: black;
     }
+
+    li:last-child {
+      cursor: pointer;
+      margin-left: 10px;
+
+      span {
+        font-size: 14px;
+        margin-left: 2px;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      margin-left: 2px;
+    }
+  }
 }
 
 .header__logo {
-    padding: 15px 0;
+  padding: 15px 0;
+  color: #333;
+  text-decoration: none;
 }
 
 .header__menu {
-    padding: 24px 0;
+  padding: 24px 0;
 
-    ul {
-        display: flex;
-        justify-content: space-between;
+  ul {
+    display: flex;
+    justify-content: space-between;
 
-        li {
-            list-style: none;
-            position: relative;
+    li {
+      list-style: none;
+      position: relative;
 
-            a {
-                text-decoration: none;
-                font-size: 11px;
-                color: map.get($theme-colors, "bold_text");
-                text-transform: uppercase;
-                font-weight: bold;
-                letter-spacing: 2px;
-                transition: all 0.3s;
-                padding: 5px 0;
-                display: block;
-            }
-        }
-
-        li:hover .header__menu__dropdown {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .active a {
-            color: map.get($theme-colors, "main");
-        }
-
-        .header__menu__dropdown{
-            background: #222222;
-            display: block;
-            position: absolute;
-            width: 180px;
-            z-index: 9;
-            padding: 5px 0;
-            transition: all, 0.3s;
-            opacity: 0;
-            visibility: hidden;
-
-            li {
-                a{
-                    text-transform: capitalize;
-                    color: #ffffff;
-                    font-weight: 400;
-                    padding: 5px 15px;
-                }
-
-                :hover {
-                    color: map.get($theme-colors,"main");
-                }
-            }
-
-        }
+      a {
+        text-decoration: none;
+        font-size: 11px;
+        color: map.get($theme-colors, "bold_text");
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        transition: all 0.3s;
+        padding: 5px 0;
+        display: block;
+      }
     }
+
+    li:hover .header__menu__dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .active a {
+      color: map.get($theme-colors, "main");
+    }
+
+    .header__menu__dropdown {
+      background: #222222;
+      display: block;
+      position: absolute;
+      width: 180px;
+      z-index: 9;
+      padding: 5px 0;
+      transition: all, 0.3s;
+      opacity: 0;
+      visibility: hidden;
+
+      li {
+        a {
+          text-transform: capitalize;
+          color: #ffffff;
+          font-weight: 400;
+          padding: 5px 15px;
+        }
+
+        :hover {
+          color: map.get($theme-colors, "main");
+        }
+      }
+    }
+  }
 }
 
 .header__home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0;
+
+  ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 24px 0;
 
-    ul {
-        display: flex;
+    margin-right: 25px;
 
-        margin-right: 25px;
+    li {
+      list-style: none;
+      position: relative;
+      margin-left: 20px;
 
-        li {
-            list-style: none;
-            position: relative;
-            margin-left: 20px;
+      svg {
+        font-size: 25px;
+        color: black;
+      }
 
-            svg {
-                font-size: 25px;
-                color:black;
-            }
-
-            span {
-                color: white;
-                background: map.get($theme-colors, "main");
-                position: absolute;
-                height: 20px;
-                width: 20px;
-                border-radius: 50%;
-                display: inline-block;
-                text-align: center;
-                line-height: 20px;
-                font-size: 13px;
-                font-weight: 500;
-                left: 15px;
-                top: -2px;
-            }
-        }
+      span {
+        color: white;
+        background: map.get($theme-colors, "main");
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+        line-height: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        left: 15px;
+        top: -2px;
+      }
     }
+  }
 }
 
 .hero__categories {
-    position: relative;
+  position: relative;
 
-    .hero__categories__all {
-        background: map.get($theme-colors, "main");
-        padding: 15px 25px 15px 40px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        color: #ffffff;
-        font-weight: 700;
-        
-        svg,
-        span {
-            font-size: 16px;
-            margin-right: 5px;
-            
-        }
+  .hero__categories__all {
+    background: map.get($theme-colors, "main");
+    padding: 15px 25px 15px 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 700;
 
-        svg {
-            font-size: 20px;
-            font-weight: bold;
-        }
+    svg,
+    span {
+      font-size: 16px;
+      margin-right: 5px;
     }
-    
-    ul {
-        position: absolute;
-        opacity: 1;
-        border: 1px solid #ebebeb;
-        width: 99%;
-        background: #ffffff;
-        transition: all 0.2s;
 
-        li{
-            list-style: none;
-
-            a{
-                text-decoration: none;
-                background-color: transparent;
-                font-size: 16px;
-                color: black;
-                line-height: 39px;
-                display: block;
-                padding-left: 40px;
-            }
-
-            &:hover {
-                background: #f7ffff;
-
-                a {
-                    color: map.get($theme-colors, "main");
-                }
-            }
-
-        }
-
-        &.hidden {
-            opacity: 0;
-        }
+    svg {
+      font-size: 20px;
+      font-weight: bold;
     }
+  }
+
+  ul {
+    position: absolute;
+    opacity: 1;
+    border: 1px solid #ebebeb;
+    width: 99%;
+    background: #ffffff;
+    transition: all 0.2s;
+
+    li {
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        background-color: transparent;
+        font-size: 16px;
+        color: black;
+        line-height: 39px;
+        display: block;
+        padding-left: 40px;
+      }
+
+      &:hover {
+        background: #f7ffff;
+
+        a {
+          color: map.get($theme-colors, "main");
+        }
+      }
+    }
+
+    &.hidden {
+      opacity: 0;
+    }
+  }
 }
 
 .hero__search__container {
-    
+  .hero__search__form {
+    width: 610px;
+    height: 50px;
+    float: left;
+    padding-left: 15px;
+    margin-bottom: 30px;
+    position: relative;
 
-    .hero__search__form {
-        width: 610px;
-        height: 50px;
-        float: left;
-        padding-left: 15px;
-        margin-bottom: 30px;
-
-        form {
-            display: flex;
-            align-items: center;
-        }
-
-        input {
-            border: none;
-            height: 48px;
-            font-size: 16px;
-            color: #b2b2b2;
-            padding-left: 20px;
-            border: 1px solid #ebebeb;
-            width: 70%;
-            
-            :focus {
-                outline: none;
-                border: none;
-            }
-        }
-    
-        button {
-            font-size: 14px;
-            color: #ffffff;
-            font-weight: 800;
-            text-transform: uppercase;
-            display: inline-block;
-            padding: 16px 30px 17px;
-            background: map.get($theme-colors, "main");
-            border: none;
-            height: 100%;
-    
-        }
-    
+    form {
+      display: flex;
+      align-items: center;
     }
 
-    .hero__search__phone{
-        display: flex;
-        align-items: center;
+    input {
+      border: none;
+      height: 48px;
+      font-size: 16px;
+      color: #b2b2b2;
+      padding-left: 20px;
+      border: 1px solid #ebebeb;
+      width: 70%;
 
-        .hero__search__phone__icon {
-            font-size: 25px;
-            padding: 10px;
-            background: #f5f5f5;
-            line-height: 50px;
-            text-align: center;
-            border-radius: 50%;
-            float: left;
-            margin-right: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: map.get($theme-colors, "main");
-        }
-
-        .hero__search__phone__text {
-            display: inline-block;
-            cursor: pointer;
-
-            p{
-                color: black;
-                font-weight: bold;
-                margin-bottom: 5px;
-            }
-
-            span {
-                color: #6f6f6f;
-                font-size: 14px;
-            }
-        }
-    }
-
-    .hero__item {
-        background-image: url($bannerImg);
-        background-size: cover;
-        height: 410px;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        margin-left: 15px;
-        
-        .hero__text {
-        padding-left: 75px;
-
-            span {
-                font-size: 14px;
-                text-transform: uppercase;
-                font-weight: 700;
-                letter-spacing: 4px;
-                color: map.get($theme-colors, "main");
-            }
-
-            h2{
-                font-size: 30px;
-                text-transform: uppercase;
-                font-weight: 700;
-                line-height: 52px;
-                color: map.get($theme-colors, "bold-text");
-                margin: 10px 0;
-            }
-
-            p{
-                font-size: 16px;
-                color:#6f6f6f;
-                font-weight: 400;
-                line-height: 26px;
-                margin: 0 0 15px 0;
-            }
-
-            a{
-                display: inline-block;
-                font-size: 14px;
-                padding: 10px 28px 10px;
-                color: #ffffff;
-                text-transform: uppercase;
-                font-weight: 700;
-                background: map.get($theme-colors, "main");
-                letter-spacing: 2px;
-                text-decoration: none;
-            }
-
-        }
-    }
-}
-
-.humberger__menu__wrapper, .humberger__open {
-    display: none;
-}
-
-@include Responsive($MEDIUM_DEVIDE) {
-    .hero__search__form {
-        width: 560px !important;
-    }
-
-}
-
-@include Responsive($TABLE_DEVIDE) {
-    @include header.header-small-device
-}
-
-@include Responsive($WIDE_DEVIDE) {
-    @include header.header-small-device;
-
-    .hero__search {
-        display: grid;
-    }
-
-    .header__logo {
-        width: max-content;
-    }
-
-    .hero__search__form {
-        width: 565px !important;
-    }
-
-    .hero__search__phone__text {
-        margin-bottom: 30px;
-    }
-
-    .hero__item {
-        margin-left: unset !important;
-    }
-}
-
-@include Responsive($WIDE_DEVIDE) {
-    .hero__search__form {
-        width: 555px !important;
-    }
-}
-
-@include Responsive($SMALL_DEVIDE) {
-    .hero__search__form {
-        width: 350px !important;
+      :focus {
+        outline: none;
+        border: none;
+      }
     }
 
     button {
-        width: 150px;
-        height: 50px !important;
+      font-size: 14px;
+      color: #ffffff;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 16px 30px 17px;
+      background: map.get($theme-colors, "main");
+      border: none;
+      height: 100%;
     }
+  }
+
+  .hero__search__phone {
+    display: flex;
+    align-items: center;
+
+    .hero__search__phone__icon {
+      font-size: 25px;
+      padding: 10px;
+      background: #f5f5f5;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 50%;
+      float: left;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: map.get($theme-colors, "main");
+    }
+
+    .hero__search__phone__text {
+      display: inline-block;
+      cursor: pointer;
+
+      p {
+        color: black;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      span {
+        color: #6f6f6f;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .hero__item {
+    background-image: url($bannerImg);
+    background-size: cover;
+    height: 410px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 15px;
+
+    .hero__text {
+      padding-left: 75px;
+
+      span {
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: map.get($theme-colors, "main");
+      }
+
+      h2 {
+        font-size: 30px;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 52px;
+        color: map.get($theme-colors, "bold-text");
+        margin: 10px 0;
+      }
+
+      p {
+        font-size: 16px;
+        color: #6f6f6f;
+        font-weight: 400;
+        line-height: 26px;
+        margin: 0 0 15px 0;
+      }
+
+      a {
+        display: inline-block;
+        font-size: 14px;
+        padding: 10px 28px 10px;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: 700;
+        background: map.get($theme-colors, "main");
+        letter-spacing: 2px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.humberger__menu__wrapper,
+.humberger__open {
+  display: none;
+}
+
+@include Responsive($MEDIUM_DEVIDE) {
+  .hero__search__form {
+    width: 560px !important;
+  }
+}
+
+@include Responsive($TABLE_DEVIDE) {
+  @include header.header-small-device;
+}
+
+@include Responsive($WIDE_DEVIDE) {
+  @include header.header-small-device;
+
+  .hero__search {
+    display: grid;
+  }
+
+  .header__logo {
+    width: max-content;
+  }
+
+  .hero__search__form {
+    width: 565px !important;
+  }
+
+  .hero__search__phone__text {
+    margin-bottom: 30px;
+  }
+
+  .hero__item {
+    margin-left: unset !important;
+  }
+}
+
+@include Responsive($WIDE_DEVIDE) {
+  .hero__search__form {
+    width: 555px !important;
+  }
+}
+
+@include Responsive($SMALL_DEVIDE) {
+  .hero__search__form {
+    width: 350px !important;
+  }
+
+  button {
+    width: 150px;
+    height: 50px !important;
+  }
 }
