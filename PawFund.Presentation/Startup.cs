@@ -104,7 +104,7 @@ public class Startup
 {
     options.AddPolicy("CorsPolicy",
         builder => builder
-            .WithOrigins("http://localhost:3000")
+            .WithOrigins("http://localhost:3000", "http://localhost:3001")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials());
