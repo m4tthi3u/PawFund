@@ -1,0 +1,70 @@
+@use "sass:map";
+@import "styles/pages/theme";
+@import "styles/pages/all";
+
+.events__content {
+    padding: 3rem 0;
+
+    .event-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        overflow: hidden;
+        height: 100%;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        &__body {
+            padding: 1.5rem;
+        }
+
+        &__title {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        &__info {
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        &__date,
+        &__location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+
+            i {
+                color: #ffc107;
+                font-size: 1.1rem;
+            }
+        }
+
+        &__description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    }
+}
+
+@include Responsive($WIDE_DEVIDE) {
+    .events__content {
+        padding: 2rem 1rem;
+    }
+}
+
+@include Responsive($SMALL_DEVIDE) {
+    .event-card {
+        &__title {
+            font-size: 1.2rem;
+        }
+    }
+}
