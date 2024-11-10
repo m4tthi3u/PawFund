@@ -4,38 +4,87 @@
 
 // Định nghĩa một lớp CSS cho container của thanh trượt danh mục.
 .container__categories__slider {
-    max-width: 1200px !important;
-    margin-top: 30px !important;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
 
     // Định nghĩa lớp con
     .categories__slider {
+        position: relative;
+        overflow: hidden;
+
         .categories__slider__item {
-            height: 300px;
+            height: 400px;
             position: relative;
             background-repeat: no-repeat;
             background-size: cover;
-            background-position: top center;
-            border-radius: 5px;
+            background-position: center;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.1),
+                    rgba(0, 0, 0, 0.7)
+                );
+                transition: opacity 0.3s ease;
+            }
+
+            &:hover {
+                transform: translateY(-5px);
+
+                &::before {
+                    opacity: 0.9;
+                }
+
+                p {
+                    transform: translateY(-10px);
+                }
+            }
 
             //Thẻ <p> trong item
             p{
                 position: absolute;
-                left: 5%;
                 bottom: 60px;
                 text-align: left;
-                font-size: 18px;
-                color: white;
-                font-weight: 700;
                 text-transform: 2px;
                 letter-spacing: 2px;
-                padding: 12px 0 10px;
                 width: 270px;
                 cursor: pointer;
-                text-shadow: 
-                -1px -1px 0 #000,  
-                1px -1px 0 #000,
-                -1px  1px 0 #000,
-                1px  1px 0 #000; 
+                left: 8%;
+                height: 90px;
+                color: white;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin: 0;
+                padding: 1rem;
+                transition: all 0.3s ease;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                z-index: 2;
+
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 25px;
+                    left: 1rem;
+                    width: 50px;
+                    height: 3px;
+                    background: #ffc107;
+                    transition: width 0.3s ease;
+                }
+
+                &:hover::after {
+                    width: 80px;
+                }
             }
 
             h{
@@ -120,6 +169,24 @@
             }
         }
 
+        .slick-arrow {
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: white;
+                transform: scale(1.1);
+            }
+
+            &::before {
+                color: #333;
+            }
+        }
+
         .react-multi-carousel-item:not(:first-child):not(:last-child) {
             margin-left: 5px;
             margin-right: 5px;
@@ -200,4 +267,38 @@
         width: 540px !important; 
     }
 }
+
+@media (max-width: 768px) {
+    .container__categories__slider {
+        margin: 2rem auto;
+        padding: 0 1rem;
+
+        .categories__slider {
+            .categories__slider__item {
+                height: 300px;
+
+                p {
+                    font-size: 1.2rem;
+                    bottom: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container__categories__slider {
+        .categories__slider {
+            .categories__slider__item {
+                height: 250px;
+
+                p {
+                    font-size: 1rem;
+                    bottom: 1rem;
+                }
+            }
+        }
+    }
+}
+
 
