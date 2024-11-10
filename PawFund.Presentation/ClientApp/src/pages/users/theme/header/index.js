@@ -82,12 +82,20 @@ const Header = () => {
       ],
     },
     {
+      name: "Nhà Nuôi",
+      path: ROUTER.USER.SHELTER,
+    },
+    {
       name: "Ủng Hộ",
       path: ROUTER.USER.DONATE,
     },
     {
       name: "Tình Nguyện Viên",
       path: ROUTER.USER.VOLUNTEER,
+    },
+    {
+      name: "Sự Kiện",
+      path: ROUTER.USER.EVENTS,
     },
     {
       name: "Liên Hệ ",
@@ -230,9 +238,8 @@ const Header = () => {
     <>
       {loading && <Loading />}
       <div
-        className={`humberger__menu__overlay${
-          isShowHumberger ? " active" : ""
-        }`}
+        className={`humberger__menu__overlay${isShowHumberger ? " active" : ""
+          }`}
         onClick={() => setShowHumberger(false)}
       />
       <div
@@ -283,9 +290,8 @@ const Header = () => {
                 </Link>
                 {menu.child && (
                   <ul
-                    className={`header__menu__dropdown ${
-                      menu.isShowSubmenu ? "show__submenu" : ""
-                    }`}
+                    className={`header__menu__dropdown ${menu.isShowSubmenu ? "show__submenu" : ""
+                      }`}
                   >
                     {menu.child.map((childItem, childKey) => (
                       <li key={`${menuKey}-${childKey}`}>
@@ -460,9 +466,8 @@ const Header = () => {
                       >
                         <div
                           style={{ flex: 1, cursor: "pointer" }}
-                          className={`title-notifi ${
-                            nocationStatus === 1 && "active"
-                          }`}
+                          className={`title-notifi ${nocationStatus === 1 && "active"
+                            }`}
                           onClick={() => setNocationStatus(1)}
                         >
                           <p
@@ -477,9 +482,8 @@ const Header = () => {
                         </div>
                         <div
                           style={{ flex: 1, margin: 0, cursor: "pointer" }}
-                          className={`title-notifi ${
-                            nocationStatus === 2 && "active"
-                          }`}
+                          className={`title-notifi ${nocationStatus === 2 && "active"
+                            }`}
                           onClick={() => setNocationStatus(2)}
                         >
                           <p
