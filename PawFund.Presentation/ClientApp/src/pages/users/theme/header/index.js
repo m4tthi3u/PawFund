@@ -198,12 +198,12 @@ const Header = () => {
 
   useEffect(() => {
     checklogin();
-    // Tạo interval để gọi API mỗi 3 giây
+    // Tạo interval để gọi API mỗi 10 giây
     const intervalId = setInterval(() => {
       getAllDonations();
       getAllPet();
       handleGetCart();
-    }, 3000);
+    }, 10000);
 
     // Clear interval khi component bị unmount
     return () => clearInterval(intervalId);
