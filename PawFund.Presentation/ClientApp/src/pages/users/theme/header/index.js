@@ -82,10 +82,6 @@ const Header = () => {
       ],
     },
     {
-      name: "Nhà Nuôi",
-      path: ROUTER.USER.SHELTER,
-    },
-    {
       name: "Ủng Hộ",
       path: ROUTER.USER.DONATE,
     },
@@ -94,12 +90,16 @@ const Header = () => {
       path: ROUTER.USER.VOLUNTEER,
     },
     {
+      name: "Liên Hệ ",
+      path: ROUTER.USER.CONTACT,
+    },
+    {
       name: "Sự Kiện",
       path: ROUTER.USER.EVENTS,
     },
     {
-      name: "Liên Hệ ",
-      path: ROUTER.USER.CONTACT,
+      name: "Nhà Nuôi",
+      path: ROUTER.USER.SHELTER,
     },
   ]);
 
