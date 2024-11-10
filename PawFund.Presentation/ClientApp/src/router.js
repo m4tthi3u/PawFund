@@ -12,6 +12,8 @@ import VolunteerPage from "pages/users/volunteerPage";
 import ContactPage from "pages/users/contactPage";
 import Login from "pages/users/auth/Login";
 import Register from "pages/users/auth/Register";
+import EventPage from "pages/users/eventPage";
+import ShelterPage from "pages/users/shelterPage";
 
 const renderUserRouter = () => {
   const userRouters = [
@@ -47,6 +49,14 @@ const renderUserRouter = () => {
       path: ROUTER.USER.CONTACT,
       Component: <ContactPage />,
     },
+    {
+      path: ROUTER.USER.EVENTS,
+      Component: <EventPage />
+    },
+    {
+      path: ROUTER.USER.SHELTER,
+      Component: <ShelterPage />,
+    }
   ];
 
   return (

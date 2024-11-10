@@ -14,5 +14,7 @@ export const ROUTER = {
     PROFILE: "/thong-tin-ca-nhan",
     LOGIN: "/dang-nhap",
     REGISTER: "/dang-ky",
+    EVENTS: "/su-kien",
+    SHELTER: "trung-tam",
   },
 };
