@@ -60,7 +60,9 @@ namespace PawFund.Presentation.Controllers
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
-                    SecurityAlgorithms.HmacSha256Signature)
+                    SecurityAlgorithms.HmacSha256Signature),
+                Audience = "PawFund",
+                Issuer = "PawFund"
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
