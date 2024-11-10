@@ -1,52 +1,140 @@
 @use "sass:map";
 @import "styles/pages/theme";
-.container {
-    padding: 30px 0;
 
+.container {
+    padding: 3rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  
     .sidebar {
-        padding-right: 20px;
+        padding: 2rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+          }
 
         .sidebar__item {
-            margin-bottom: 20px;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+
+            &:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            &:hover {
+                transform: translateX(10px);
+                
+                h2 {
+                  color: #ffc107;
+                  
+                  &:after {
+                    width: 100%;
+                  }
+                }
+              }
 
             h2 {
-                color: rgb(28,28,28);
-                font-weight: 700;
-                margin-bottom: 10px;
+                color: #2c3e50;
+                padding-bottom: 0.8rem;
+                color: #2c3e50;
+                font-size: 1.3rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                position: relative;
+                transition: color 0.3s ease;
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    bottom: -5px;
+                    left: 0;
+                    width: 30px;
+                    height: 2px;
+                    background: #ffc107;
+                    transition: width 0.3s ease;
+                }
+
+                &:hover::after {
+                    width: 60px;
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: -2rem;
+                    top: 0;
+                    height: 100%;
+                    width: 4px;
+                    background: #ffc107;
+                    transform: scaleY(0);
+                    transition: transform 0.3s ease;
+                  }
+            
+                  &:hover:before {
+                    transform: scaleY(1);
+                  }
 
             }
 
-            .gender-select {
+            .gender-select,
+            .age-select, .color-select {
                 width: 100%;
-                padding: 8px;
-                margin-top: 8px;
-                font-size: 16px;
-                color: rgb(28,28,28);
-            }
+                padding: 0.8rem 1rem;
+                font-size: 0.95rem;
+                color: #2c3e50;
+                background-color: #f8f9fa;
+                border: 1px solid #e9ecef;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                appearance: none;
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: right 1rem center;
+                background-size: 1em;
 
-            .age-select {
-                width: 100%;
-                padding: 8px;
-                margin-top: 8px;
-                font-size: 16px;
-                color: rgb(28,28,28);
-            }
+                &:hover {
+                    border-color: #ffc107;
+                    background-color: white;
+                }
 
-            .vaccinated-select {
-                width: 100%;
-                padding: 8px;
-                margin-top: 8px;
-                font-size: 16px;
-                color: rgb(28,28,28);
-            }
-
-            .color-select {
-                width: 100%;
-                padding: 8px;
-                margin-top: 8px;
-                font-size: 16px;
-                color: rgb(28,28,28);
+                &:focus {
+                    outline: none;
+                    border-color: #ffc107;
+                    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.1);
+                }
             }
         }
     }
 }
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1rem;
+
+        .sidebar {
+            padding: 1rem;
+
+            .sidebar__item {
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+
+                h2 {
+                    font-size: 1.1rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
+
