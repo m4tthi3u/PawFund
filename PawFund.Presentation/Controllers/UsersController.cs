@@ -41,6 +41,11 @@ namespace PawFund.Presentation.Controllers
         [HttpPost]
         public async Task<ActionResult<UserResponseDto>> CreateUser(UserCreateDto createDto)
         {
+            var existingUser = await _userService.GetUserByUsernameAsync(createDto.Username);
+            if (existingUser != null)
+            {
+                return Conflict(new {message = "Username already exists"});
+            }
             var user = MapToEntity(createDto);
             user.Role = UserRole.User;
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(createDto.Password); // Hash the password
