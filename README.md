@@ -104,7 +104,7 @@ Before you begin, ensure you have the following installed:
    cd PawFund.Presentation/ClientApp
    npm run start
    # or
-   yart start
+   yarn start
    # or
    bun run start
    ```
