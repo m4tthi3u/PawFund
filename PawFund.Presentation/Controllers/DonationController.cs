@@ -21,7 +21,7 @@ namespace PawFund.Presentation.Controllers
             _hubContext = hubContext;
         }
         
-        [Authorize(Roles = "Admin, Staff")]
+        [Authorize(Roles = "Admin, Staff, User")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DonationResponseDto>>> GetDonations()
         {
