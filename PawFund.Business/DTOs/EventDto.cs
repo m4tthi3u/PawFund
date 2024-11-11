@@ -1,12 +1,22 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace PawFund.Business.DTOs
 {
 
     public class EventCreateDto
     {
+        [Required]
+        [StringLength(30)]
         public string Title { get; set; }
+        [Required]
+        [StringLength(100)]
         public string Description { get; set; }
+        [Required]
         public DateTime Date { get; set; }
+        [Required]
+        [StringLength(30)]
         public string Location { get; set; }
+        [Required]
         public int ShelterId { get; set; }
     }
 
