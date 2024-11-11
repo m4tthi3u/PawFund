@@ -2,7 +2,7 @@
 using PawFund.Business.Services.Interfaces;
 using PawFund.Data.Repositories.Interfaces;
 
-namespace PawFund.Web.Server.Services
+namespace PawFund.Business.Services.Implementations
 {
     public class ShelterService : IShelterService
     {

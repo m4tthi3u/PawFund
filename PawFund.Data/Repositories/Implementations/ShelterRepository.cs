@@ -3,8 +3,7 @@ using PawFund.Data.Models;
 using PawFund.Data.Context;
 using PawFund.Data.Repositories.Interfaces;
 
-
-namespace PawFund.Web.Server.Repositories
+namespace PawFund.Data.Repositories.Implementations
 {
     public class ShelterRepository : IShelterRepository
     {
