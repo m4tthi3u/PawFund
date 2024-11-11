@@ -4,7 +4,7 @@
 
 ### Connecting Hearts, Saving Paws
 
-[![License: GPL v3](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit)
+[![Licence: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/mit)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Node.js Version](https://img.shields.io/badge/Node.js-20.x-green)](https://nodejs.org)
 [![.NET Version](https://img.shields.io/badge/.NET-8.0-purple)](https://dotnet.microsoft.com)
@@ -31,7 +31,7 @@
 
 - **User Experience**
   - Secure authentication
-  - Personalized profiles
+  - Personalised profiles
   - Intuitive dashboard
 
 - **Event System**
@@ -39,10 +39,12 @@
   - Fundraising events
   - Community meetups
 
-- **Mobile-First Design**
+- **Mobile-First Design***
   - Responsive interfaces
   - Cross-platform compatibility
-  - Optimized performance
+  - Optimised performance
+
+<sub>* Only apply for the web, Admin Dashboard does not apply.</sub>
 
 ## 🛠️ Tech Stack
 
@@ -52,7 +54,7 @@
 - **PostgreSQL** - Primary database
 
 ### Frontend
-- **React 18** - UI framework
+- **ReactJS** - UI framework
 - **SCSS** - Enhanced styling
 - **Modern JavaScript** - ES6+ features
 
@@ -61,7 +63,7 @@
 Before you begin, ensure you have the following installed:
 - **.NET 8.0** or later
 - **Node.js** 16.x or later
-- **npm** or **yarn**
+- **npm** or **yarn** or **bun**
 - **PostgreSQL**
 
 ## 🚀 Getting Started
@@ -100,7 +102,11 @@ Before you begin, ensure you have the following installed:
    
    # In a separate terminal, run the frontend
    cd PawFund.Presentation/ClientApp
-   npm start
+   npm run start
+   # or
+   yart start
+   # or
+   bun run start
    ```
 
    📍 Access the application at:
@@ -132,7 +138,7 @@ PawFund/
 - **SCSS** for maintainable styling
 - **React Icons** for consistent UI elements
 - **React Multi Carousel** for image galleries
-- **React Tabs** for organized content
+- **React Tabs** for organised content
 
 ### Backend Architecture
 - **Entity Framework Core** for reliable data access
@@ -160,7 +166,7 @@ We welcome contributions! Here's how you can help:
 
 ## 📄 License
 
-This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](https://github.com/m4tthi3u/PawFund?tab=GPL-3.0-1-ov-file#readme) file for details.
+This project is licenced under the **MIT Licence** - see the [LICENCE](https://github.com/m4tthi3u/PawFund?tab=MIT-1-ov-file) file for details.
 
 ## 📬 Contact
 
