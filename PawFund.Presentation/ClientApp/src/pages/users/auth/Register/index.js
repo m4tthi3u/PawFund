@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import "./style.scss";
 import userService from "services/userServiecs";
 import Loading from "component/Loading";
 import { ROUTER } from "utils/router";
@@ -12,10 +11,18 @@ const Register = () => {
     password: "",
     email: "",
   });
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    // Password confirmation check
+    if (dataRegister.password !== confirmPassword) {
+      alert("Mật khẩu không khớp!");
+      return;
+    }
+
     setLoading(true);
     try {
       const dataResult = await userService.create(dataRegister);
@@ -27,7 +34,15 @@ const Register = () => {
     } catch (error) {
       console.error(error);
       setLoading(false);
-      alert("Đăng ký không thành công, hãy kiểm tra lại dữ liệu !");
+
+      // Check if the error is a conflict (409)
+      if (error.response && error.response.status === 409) {
+        alert(
+          "Email hoặc tên đăng nhập đã tồn tại. Vui lòng chọn email/tên đăng nhập khác!",
+        );
+      } else {
+        alert("Đăng ký không thành công, hãy kiểm tra lại dữ liệu !");
+      }
     }
   };
 
@@ -100,6 +115,16 @@ const Register = () => {
                         password: e.target.value,
                       }))
                     }
+                  />
+                </div>
+                <div className="login__field">
+                  <i className="login__icon fas fa-lock" />
+                  <input
+                    type="password"
+                    className="login__input"
+                    value={confirmPassword}
+                    placeholder="Xác nhận mật khẩu"
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
                 <button className="button login__submit">
