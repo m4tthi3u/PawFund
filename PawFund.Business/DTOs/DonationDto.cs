@@ -10,7 +10,6 @@ namespace PawFund.Business.DTOs
         public int? ShelterId { get; set; }
         [Required]
         public int PetId { get; set; }
-        [Required]
         public string PetName { get; set; }
         [Range(0,1000)]
         public decimal Amount { get; set; }
