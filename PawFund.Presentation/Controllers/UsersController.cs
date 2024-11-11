@@ -42,7 +42,7 @@ namespace PawFund.Presentation.Controllers
         public async Task<ActionResult<UserResponseDto>> CreateUser(UserCreateDto createDto)
         {
             var user = MapToEntity(createDto);
-            user.Role = UserRole.Guest;
+            user.Role = UserRole.User;
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(createDto.Password); // Hash the password
             await _userService.AddUserAsync(user);
     
@@ -96,7 +96,7 @@ namespace PawFund.Presentation.Controllers
             {
                 Username = dto.Username,
                 Email = dto.Email,
-                Role = UserRole.Guest
+                Role = UserRole.User
             };
         }
 
