@@ -37,7 +37,7 @@ namespace PawFund.Data.Repositories.Implementations
 
         public async Task<User> GetUserByUsernameAsync(string username)
         {
-            return await dbContext.Users.FirstOrDefaultAsync(u => u.Username == username);
+            return await dbContext.Users.SingleOrDefaultAsync(u => u.Username == username);
         }
 
         public async Task UpdateUserAsync(User user)
@@ -48,12 +48,12 @@ namespace PawFund.Data.Repositories.Implementations
 
         public async Task<User> SearchUserAsync(string searchTerm)
         {
-            return await dbContext.Users.FirstOrDefaultAsync(u => u.Username.Contains(searchTerm));
+            return await dbContext.Users.SingleOrDefaultAsync(u => u.Username.Contains(searchTerm));
         }
 
         public async Task<User> LoginUserAsync(string username, string password)
         {
-            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var user = await dbContext.Users.SingleOrDefaultAsync(u => u.Username == username);
             if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
             {
                 return null; // User not found or password incorrect
