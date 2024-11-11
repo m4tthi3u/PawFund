@@ -50,7 +50,7 @@ namespace PawFund.Business.DTOs
         [StringLength(100)]
         public string Description { get; set; }
         [Required]
-        [StringLength(100)]
+        [StringLength(1000)]
         public string ImageUrl { get; set; }
         public AdoptionStatus Status { get; set; }
         [Required]
