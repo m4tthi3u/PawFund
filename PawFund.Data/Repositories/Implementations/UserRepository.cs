@@ -51,13 +51,6 @@ namespace PawFund.Data.Repositories.Implementations
             return await dbContext.Users.FirstOrDefaultAsync(u => u.Username.Contains(searchTerm));
         }
 
-        public async Task<User> RegisterUserAsync(User user)
-        {
-            await dbContext.Users.AddAsync(user);
-            await dbContext.SaveChangesAsync();
-            return user;
-        }
-
         public async Task<User> LoginUserAsync(string username, string password)
         {
             var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Username == username);

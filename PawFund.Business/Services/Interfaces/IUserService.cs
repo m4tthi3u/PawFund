@@ -10,7 +10,6 @@ namespace PawFund.Business.Services.Interfaces
         Task AddUserAsync(User user);
         Task UpdateUserAsync(User user);
         Task DeleteUserAsync(int id);
-        Task<User> RegisterUserAsync(User user);
         Task<User> LoginUserAsync(string username, string password);
     }
 }

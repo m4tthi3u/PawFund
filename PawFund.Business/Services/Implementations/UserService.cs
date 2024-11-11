@@ -37,11 +37,7 @@ namespace PawFund.Web.Server.Services
         {
             await userRepository.UpdateUserAsync(user);
         }
-
-        public async Task<User> RegisterUserAsync(User user)
-        {
-            return await userRepository.RegisterUserAsync(user);
-        }
+        
 
         public async Task<User> LoginUserAsync(string username, string password)
         {

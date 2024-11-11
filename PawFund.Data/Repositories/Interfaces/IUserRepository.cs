@@ -10,9 +10,6 @@ namespace PawFund.Data.Repositories.Interfaces
         Task AddUserAsync(User user);
         Task UpdateUserAsync(User user);
         Task DeleteUserAsync(int id);
-        // Register a user
-        Task<User> RegisterUserAsync(User user);
-        // Login a user
         Task<User> LoginUserAsync(string username, string password);
     }
 }
