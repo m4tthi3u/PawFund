@@ -62,7 +62,7 @@
 
 Before you begin, ensure you have the following installed:
 - **.NET 8.0** or later
-- **Node.js** 16.x or later
+- **Node.js** 20.x or later
 - **npm** or **yarn** or **bun**
 - **PostgreSQL**
 
