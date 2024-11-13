@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using PawFund.Data.Models;
+using System.ComponentModel;
 
 namespace PawFund.Business.DTOs
 {
@@ -10,10 +11,10 @@ namespace PawFund.Business.DTOs
         [StringLength(30)]
         public string Username { get; set; }
         [Required]
-        [StringLength(30)]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [StringLength(32)]
+        [PasswordPropertyText]
         public string Password { get; set; }
     }
 
@@ -23,7 +24,7 @@ namespace PawFund.Business.DTOs
         [StringLength(30)]
         public string Username { get; set; }
         [Required]
-        [StringLength(30)]
+        [EmailAddress]
         public string Email { get; set; }
         public UserRole Role { get; set; }
     }
