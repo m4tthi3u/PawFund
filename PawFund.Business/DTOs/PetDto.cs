@@ -24,7 +24,7 @@ namespace PawFund.Business.DTOs
         [StringLength(100)]
         public string Description { get; set; }
         [Required]
-        [StringLength(100)]
+        [Url]
         public string ImageUrl { get; set; }
         [Required]
         public int ShelterId { get; set; }
@@ -50,7 +50,7 @@ namespace PawFund.Business.DTOs
         [StringLength(100)]
         public string Description { get; set; }
         [Required]
-        [StringLength(1000)]
+        [Url]
         public string ImageUrl { get; set; }
         public AdoptionStatus Status { get; set; }
         [Required]
