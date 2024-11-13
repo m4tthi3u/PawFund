@@ -9,13 +9,13 @@ namespace PawFund.Business.DTOs
         [StringLength(30)]
         public string Name { get; set; }
         [Required]
-        [StringLength(30)]
+        [StringLength(100)]
         public string Address { get; set; }
         [Required]
-        [StringLength(11)]
+        [Phone]
         public string PhoneNumber { get; set; }
         [Required]
-        [StringLength(30)]
+        [EmailAddress]
         public string Email { get; set; }
     }
 
