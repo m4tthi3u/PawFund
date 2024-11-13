@@ -46,31 +46,6 @@
 
 <sub>* Only apply for the web, Admin Dashboard does not apply.</sub>
 
-## 🔧 Development Environment
-
-### Code Editors & IDEs
-- **Frontend Development**
-  - **Visual Studio Code** - Primary code editor for React/JavaScript
-  - **Zed** - Modern, high-performance alternative editor
-
-- **Backend Development**
-  - **JetBrains Rider** - Powerful .NET IDE with advanced debugging capabilities
-
-- **Database Management**
-  - **JetBrains DataGrip** - Comprehensive database management and query tools
-
-### Frontend Features
-- **React Router** for seamless navigation
-- **SCSS** for maintainable styling
-- **React Icons** for consistent UI elements
-- **React Multi Carousel** for image galleries
-- **React Tabs** for organised content
-
-### Backend Architecture
-- **Entity Framework Core** for reliable data access
-- **Repository pattern** for clean data abstraction
-- **RESTful API** design for efficient communication
-
 ## 📋 Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -148,7 +123,18 @@ PawFund/
     └── ClientApp/         # React Application
 ```
 
-## 💻 Development
+## 🔧 Development Environment
+
+### Code Editors & IDEs
+- **Frontend Development**
+  - **Visual Studio Code** - Primary code editor for React/JavaScript
+  - **Zed** - Modern, high-performance alternative editor
+
+- **Backend Development**
+  - **JetBrains Rider** - Powerful .NET IDE with advanced debugging capabilities
+
+- **Database Management**
+  - **JetBrains DataGrip** - Comprehensive database management and query tools
 
 ### Frontend Features
 - **React Router** for seamless navigation
@@ -161,6 +147,7 @@ PawFund/
 - **Entity Framework Core** for reliable data access
 - **Repository pattern** for clean data abstraction
 - **RESTful API** design for efficient communication
+
 
 ## 🤝 Contributing
 
