@@ -69,6 +69,12 @@ Before you begin, ensure you have the following installed:
    
    # Restore dependencies
    dotnet restore
+
+   # Navigate to PawFund.Data
+   cd PawFund.Data
+
+   # Create New Migration
+   dotnet ef migrations add YourMigrationName
    
    # Update database with migrations
    dotnet ef database update
