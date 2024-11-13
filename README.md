@@ -93,6 +93,10 @@ Before you begin, ensure you have the following installed:
    
    # Install dependencies
    npm install
+   # or
+   yarn install
+   # or
+   bun install (prefered because bun is fast)
    ```
 
 4. **Run the application**
